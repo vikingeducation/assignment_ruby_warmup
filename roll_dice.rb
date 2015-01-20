@@ -1,3 +1,5 @@
+#require 'FileUtils'
+
 def roll_dice (num=1) 
   total_roll = 0
   num.times do 
@@ -47,7 +49,19 @@ def stock_picker(day_array)
   return [bottomnum,topnum]	
 end
 
-
+def anagrams(word_input)  
+  scrabble_dictionary=[]
+ File.open('scrabble.txt').each do |line|
+    scrabble_dictionary << line
+  end
+  return_answers = [""]
+  scrabble_dictionary.each do |word|
+    if word.downcase.chars.sort.join.strip.chomp == word_input.downcase.chars.sort.join.strip.chomp
+      return_answers << word[0..-3]
+   end
+  end
+  return return_answers
+end
 
 
 

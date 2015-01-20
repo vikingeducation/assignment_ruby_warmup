@@ -1,13 +1,13 @@
 def anagrams(word)
   dictionary = []
-  f = File.open("zingarelli2005.txt")
+  f = File.open("enable.txt")
   f.each_line do |line|
     dictionary << line.strip
   end
   legal_anagrams = []
   dictionary.each do |entry|
-    if are_these_anagrams?(entry,word.upcase)
-      legal_anagrams << entry
+    if are_these_anagrams?(entry.upcase,word.upcase)
+      legal_anagrams << entry.upcase
     end
   end
   legal_anagrams

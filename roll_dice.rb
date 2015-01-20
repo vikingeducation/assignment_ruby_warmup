@@ -13,8 +13,23 @@ def dice_outcomes(dice=1,rollno=1)
     visual_chart_hash[result.to_s.to_sym] += "#"
   end
   final_return = Hash[visual_chart_hash].sort
-  puts final_return
   return final_return
 end
 
-dice_outcomes(3,100)
+def fibonacci(num)
+  such_array = [1,1]
+  last_num = 0
+  if num == 1
+    return 1
+  end
+  while such_array.length < num
+    last_num = such_array[-1] + such_array[-2]
+    such_array << last_num
+  end
+  return such_array
+end
+
+
+
+
+

@@ -29,6 +29,25 @@ def fibonacci(num)
   return such_array
 end
 
+def stock_picker(day_array)
+
+  largest_num = 0
+  topnum = 1
+	bottomnum = 0
+
+	day_array[0..-2].each_with_index do |buy, i|
+		day_array[(i+1)..-1].each_with_index do |sell, j| 
+      if (sell - buy) > largest_num
+				topnum = j + (i+1)
+				bottomnum = i
+        largest_num = sell - buy
+			end
+		end	
+	end
+  return [bottomnum,topnum]	
+end
+
+
 
 
 

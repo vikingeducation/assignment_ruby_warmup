@@ -21,7 +21,7 @@ def graphically_display_outcomes dice_outcomes_array
       next
     end
     graphical_representation_of_results = Array.new(item, "#")
-    puts "#{index}: \t#{graphical_representation_of_results.join}"
+    puts "#{index}: \t" + "#"*item
   end
 end
 

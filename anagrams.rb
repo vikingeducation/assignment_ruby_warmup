@@ -2,9 +2,9 @@ def anagrams word
   textfile =  File.new("enable.txt", "r")
   dictionary_of_words = textfile.readlines
   anagrams_of_word = []
-  dictionary_of_words.each do |item|
-    if (is_an_anagram_of?(word, item))
-      anagrams_of_word.push(item)
+  dictionary_of_words.each_with_index do |item, index|
+    if (is_an_anagram_of?(word, item.chomp))
+      anagrams_of_word.push(item.chomp)
     end
   end
   return anagrams_of_word
@@ -27,4 +27,4 @@ def is_an_anagram_of? (my_word, a_word)
   end
 end
 
-anagrams "hello"
+puts anagrams "pears"

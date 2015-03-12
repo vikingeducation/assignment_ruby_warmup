@@ -4,9 +4,7 @@ def fibonacci( number )
   if number == 1
     fibonacci << 1
   elsif number == 2
-    2.times do
-      fibonacci << 1
-    end
+    fibonacci = [1, 1]
   else
     fibonacci = [1, 1]
       (number - 2).times do |i|
@@ -17,4 +15,4 @@ def fibonacci( number )
   puts "#{fibonacci}"
 end
 
-fibonacci(10)
+fibonacci(5)

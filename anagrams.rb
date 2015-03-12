@@ -5,7 +5,7 @@ def anagrams( word )
     # set the permutation equal to the joined permutation so the characters aren't separated
     # and downcased so capitalization isn't an issue
     word_permutation = word_permutation.join.downcase
-    File.open("/path/to/enable.txt") do |file| # open the enable.txt dictionary
+    File.open("/path/to/dictionary.txt") do |file| # open the dictionary file
       file.any? do |word_in_dict| # .any? makes us read lines from the file until the end (nil char)
         # if the stripped word on our current line (stripped b/c newline char)
         # is equal to the input word, go to next block, we don't want it

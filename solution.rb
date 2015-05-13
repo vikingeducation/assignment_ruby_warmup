@@ -68,3 +68,26 @@ end
 # puts fibonacci(2)
 # puts fibonacci(10)
 # puts fibonacci(1000)
+
+
+
+
+def stock_picker(stocks)
+  biggest_profit = 0
+  best_pair_indices = []
+
+  stocks.each_with_index do |first_price, first_index| 
+    stocks.each_with_index do |last_price, last_index| 
+      if first_index < last_index # Only compare indices in the future
+        if (last_price - first_price) > biggest_profit
+          biggest_profit = last_price - first_price
+          best_pair_indices = [first_index, last_index]
+        end
+      end
+    end
+  end
+  best_pair_indices
+end
+
+# Testing
+# puts stock_picker([44,30,24,32,35,30,40,38,15])

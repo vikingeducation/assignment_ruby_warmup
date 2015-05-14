@@ -27,7 +27,6 @@ def dice_outcomes(number_of_dice =1, number_of_rolls=10)
     outcomes[outcome] = 0
   end
   
-
   number_of_rolls.times do
     # Rolls the number of dice specified and stores in outcomes hash
     outcomes[roll_dice(number_of_dice)] += 1
@@ -91,3 +90,52 @@ end
 
 # Testing
 # puts stock_picker([44,30,24,32,35,30,40,38,15])
+
+
+
+
+
+def anagrams(word)
+
+  matched_anagrams = []
+  dictionary = []
+
+  # Convert word to array for comparison
+  word_split = word.upcase!.split("").sort!
+
+  # Load dictionary into dictionary array
+  File.open("enable.txt", "r") do |f|
+    f.each_line do |line|
+      dictionary.push(line)
+    end
+  end
+
+  dictionary.each do |dictionary_word|
+
+    dictionary_word.strip!
+    # Eliminates words that don't match due to length
+    if dictionary_word.length == word.length
+
+      # Checks to see if a word contains all the correct letters
+      test_word = dictionary_word.upcase!.split("").sort!
+      if test_word == word_split
+        matched_anagrams << dictionary_word 
+      end
+
+    end
+  end
+
+  # Purges original word from array
+  matched_anagrams.each_with_index do |item, index|
+    if word == item
+      matched_anagrams.delete_at(index)
+    end
+  end
+
+  # Returns matched array
+  matched_anagrams
+end
+
+# Testing
+# puts anagrams("pears")
+# puts anagrams("zycote")

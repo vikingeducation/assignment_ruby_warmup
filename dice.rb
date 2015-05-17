@@ -18,9 +18,7 @@ def dice_outcomes(number_of_dice, number_of_rolls)
 
   summary = outcomes.sort!
 
-
   previous_outcome = 0
-
 
   summary.each do |current_outcome|
 

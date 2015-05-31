@@ -45,6 +45,7 @@ def dice_outcomes(num_of_dice, num_of_rolls)
 end
 
 
+
 def fibonacci(num)
   # Need to setup several variables.
   previous = 1
@@ -76,6 +77,8 @@ def fibonacci(num)
   
 end
 
+
+
 def stock_picker(stock_prices)
   possibles = {}
 
@@ -95,3 +98,32 @@ def stock_picker(stock_prices)
   # Now we just need to find the largest key and return its value array. 
   possibles.max_by {|k, v| k}[1]
 end 
+
+
+
+def anagrams(original)
+  anagrams = []
+  possibles = IO.readlines("enable.txt")
+  possibles.each do |possible|
+    # possible words are read in with a /n on them
+    possible.strip!
+
+    # Toss any words that are shorter or longer than the original
+    if possible.length == original.length
+
+      # Then we split up each word into an array and check the two for duplicates
+      if (original.split("") - possible.split("")).empty?
+
+        # Check again, going the other way
+        if (possible.split("") - original.split("")).empty?
+
+          # Finally pack up our anagrams into an array.
+          anagrams << possible unless possible == original
+        end
+      end
+    end
+  end
+
+  anagrams
+  
+end

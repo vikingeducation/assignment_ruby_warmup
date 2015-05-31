@@ -43,3 +43,35 @@ def dice_outcomes(num_of_dice, num_of_rolls)
   end
 
 end
+
+
+def fibonacci(num)
+  # Need to setup several variables.
+  previous = 1
+  current = 1
+  total = 0
+  index = 0
+  output = []
+
+  # Our loop steps through the fibonacci sequence, with each
+  # interation it increments itself based on the total from 
+  # the last loop.
+  while index <= num
+    previous = current
+    current = total
+    total = previous + current
+    output << total
+    index += 1
+
+    # Outputting the variables after each run was helpful
+    # puts "sequence #{index}"
+    # puts "previous is #{previous}"
+    # puts "current is #{current}"
+    # puts "total is #{total}"
+    # puts "\n\n"
+  end
+
+  # Implicit return
+  output
+  
+end

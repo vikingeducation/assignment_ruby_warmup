@@ -75,3 +75,23 @@ def fibonacci(num)
   output
   
 end
+
+def stock_picker(stock_prices)
+  possibles = {}
+
+  # Loop through the stock_prices array, comparing each value.
+  # If a comparison is found where the first value is less than the second
+  # AND the second value comes after the first in the array (later in time)
+  # then pack the index of each as an array as a value of our possibles hash
+  # with the difference between them as the key
+  stock_prices.each_with_index do |main_val, main_index|
+    stock_prices.each_with_index do |compare_val, compare_index |
+      if compare_val > main_val && compare_index > main_index
+        possibles[(compare_val - main_val)] = [main_index, compare_index]
+      end
+    end
+  end
+
+  # Now we just need to find the largest key and return its value array. 
+  possibles.max_by {|k, v| k}[1]
+end 

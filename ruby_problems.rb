@@ -59,22 +59,44 @@ end
 
 # fibonacci(7)
 
-# def stock_picker(stock_array)
-#   end
-# end
+def stock_picker(stock_array)
+  max_profit = 0
+  profit = 0
+  return_buy_day = 0
+  return_sell_day = 0
+
+  (0...stock_array.length).each do |i|
+
+    (i+1...stock_array.length).each do |j|
+      puts j
+
+      if profit > max_profit
+        max_profit = profit
+        return_buy_day = i
+        return_sell_day = j - 1
+      end
+      
+      profit = stock_array[j] - stock_array[i]
+    end
+  end
+  puts "[#{return_buy_day}, #{return_sell_day}]"
+end
+
+stock_picker([44, 30, 24, 32, 35, 30, 40, 38, 15])
 
 def anagrams(string)
 
   return_array=[]
-  string_array=[]
+  # string_array=[]
 
-
-  string.each_char {|c| string_array.push(c)}
+  # string.each_char {|c| string_array.push(c)}
 
   file = File.open("enable.txt", 'r')
   while !file.eof?
+    
     line = file.readline
     line = line.strip
+    
     if string.chars.sort == line.chars.sort
       return_array.push(line)
     end

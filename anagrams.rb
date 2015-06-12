@@ -1,19 +1,20 @@
 def anagrams (word)
 
-	@word = word.split(//)
+	dict = File.open('enable.txt').read
 	results = []
 
-	File.open('enable.txt') do |f|
-		f.any? do |line|
-			line = line.split(//)
-			if @word == line
+	dict.each_line do |line|
+			line.chomp!
+			if word.split(//).sort == line.split(//).sort
+				results << line if word != line
 			end
 		end
-	end
-return results
+	return results
 end
 
 
-result = anagrams("pear")
+print "Find all anagrams for the word: "
+my_word = gets.chomp
 
-puts "This is my result #{result}"
+print "#{anagrams(my_word)} \n"
+

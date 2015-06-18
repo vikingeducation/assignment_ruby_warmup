@@ -10,7 +10,7 @@ def single_fibonacci(limit)
 end
 
 # Returns a list with the fibonacci sequence values.
-def sequence_fibonacci(limit)
+def fibonacci(limit)
   fib_list = []
   # since we want from 0 to the limit, we use upto to iterate.
   0.upto(limit - 1) do |val|
@@ -20,5 +20,5 @@ def sequence_fibonacci(limit)
   return fib_list
 end
 
-print sequence_fibonacci(6) # Should return [1,1,2,3,5,8]
-print sequence_fibonacci(7) # Should return [1,1,2,3,5,8,13]
+print fibonacci(6) # Should return [1,1,2,3,5,8]
+print fibonacci(7) # Should return [1,1,2,3,5,8,13]

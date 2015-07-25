@@ -1,27 +1,24 @@
 input = "pears"
 
 def anagrams(orig_word)
-  word_array = orig_word.split("")
+  # array returned containing all anagrams
   anagram_array = []
 
-  word_array.length.times do |letter|
-    word_array.length.times do |compare_letter|
-      temp = word_array[letter]
-      orig = word_array[compare_letter]
-      word_array[letter] = orig
-      word_array[compare_letter] = temp
-      test_word = word_array.join
+  # check each word against original word to see if it's an anagram
+  File.open('enable.txt').each_line do |line|
 
-      if open('enable.txt').grep(test_word)
-        anagram_array.push(test_word)
-      end
-
-      word_array[letter] = temp
-      word_array[compare_letter] = orig
+    # word is an anagram if letters of input and word in 'enable.txt' are the same when sorted
+    if line.chomp.chars.sort.join == orig_word.chars.sort.join
+      #push anagram into the return array
+      anagram_array.push(line.chomp.upcase) 
     end
   end
 
-  print anagram_array.uniq
+  # remove original word from array
+  anagram_array.delete(orig_word.upcase)
+
+  # print array
+  print anagram_array.to_s + "\n"
 end
 
 anagrams(input)

@@ -1,14 +1,15 @@
 def stock_picker(prices)
 	max_profit = max_profit_day_one = max_profit_day_two = 0
-	prices.each_with_index do |day_one, i|
-		prices.each_with_index do |day_two, j|
-			if j > i
-				current_profit = day_two - day_one
-				if current_profit > max_profit
-					max_profit = current_profit
-					max_profit_day_one = i
-					max_profit_day_two = j
-				end
+	(0...prices.length).each do |i|
+		((i + 1)...prices.length).each do |j|
+			day_one = prices[i]
+			day_two = prices[j]
+			current_profit = day_two - day_one
+			if current_profit > max_profit
+				max_profit = current_profit
+				max_profit_day_one = i
+				max_profit_day_two = j
+				puts "#{day_two.to_s} - #{day_one.to_s} = #{current_profit}"
 			end
 		end
 	end

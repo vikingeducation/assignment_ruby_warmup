@@ -1,5 +1,9 @@
 def roll_dice(n)
-	rand(1..(n * 6))
+	outcome = 0
+	n.times do |i|
+		outcome += rand(1..6)
+	end
+	outcome
 end
 
 def dice_outcomes(dice, rolls)
@@ -14,5 +18,4 @@ def dice_outcomes(dice, rolls)
 end
 
 # puts roll_dice(6)
-
 # puts dice_outcomes(3, 100)

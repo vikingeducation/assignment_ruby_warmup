@@ -33,7 +33,7 @@ def dice_outcomes(dice_num, roll_num)
   #print the histogram
   index = dice_num
   while index < max_sum
-    print "#{index}:\t"
+    print "#{index}:".ljust(4)
     sum_histogram[index].times do
       print "#"
     end

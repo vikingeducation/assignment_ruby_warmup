@@ -4,5 +4,17 @@ def roll_dice dice=1
   result
 end
 
-puts roll_dice
-puts roll_dice(2)
+def dice_outcomes(dice, rolls)
+  results = {}
+  rolls.times do
+    current_result = roll_dice(dice)
+    if results[current_result]
+      results[current_result] += 1
+    else
+      results[current_result] = 1
+    end
+  end
+  results
+end
+
+puts dice_outcomes(2, 50)

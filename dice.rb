@@ -5,6 +5,7 @@ def roll_dice dice=1
 end
 
 def dice_outcomes(dice, rolls)
+  # Generate the outcomes
   results = {}
   rolls.times do
     current_result = roll_dice(dice)
@@ -14,7 +15,14 @@ def dice_outcomes(dice, rolls)
       results[current_result] = 1
     end
   end
+
+  # Output the outcomes graphically
+  results_array = results.to_a.sort
+  results_array.each do |result_pair|
+    puts "#{result_pair.first}: #{'#' * result_pair.last}"
+  end
+
   results
 end
 
-puts dice_outcomes(2, 50)
+puts dice_outcomes(3, 100)

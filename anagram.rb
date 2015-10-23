@@ -1,8 +1,5 @@
 def anagram(str)
-	arr = []
-	str_array = str.split(//)
 	word_array = []
-	word = str.split("")
 
 	file = File.open("enable.txt", "r")
 	dictionary = file.readlines

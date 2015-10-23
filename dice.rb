@@ -5,6 +5,7 @@ def roll_dice(num)
 			final_result += single_die[rand(0..5)]
 		end
 	print "Total rolled: #{final_result}. You rolled #{num} dice."
+	return final_result
 end
 
 roll_dice(3)

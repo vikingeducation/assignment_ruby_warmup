@@ -7,7 +7,6 @@ def stock_picker(arr)
 				result_array << index_buy
 				result_array << index_sell
 				result_array << (arr[index_sell] - arr[index_buy])
-				#print "#{buy}, #{sell}, #{arr[index_sell] - arr[index_buy]} "
 			end
 		end
 	end

@@ -14,6 +14,6 @@ def dice_outcomes(num_of_dice, rolls)
 	result_array.length.times do |length|
 		puts "#{result_array[length]}:  #{result_hash[length + num_of_dice]}"
 	end	
-	puts result_hash
+	return result_hash
 end
 

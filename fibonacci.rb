@@ -5,5 +5,5 @@ def fibonacci(num)
 		first_num += fib_holder[time] 
 		fib_holder << first_num
 	end
-	print fib_holder
+	return fib_holder
 end

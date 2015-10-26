@@ -15,22 +15,26 @@
 
 prices = [ 44, 30, 24, 32, 35, 30, 40, 38, 15 ]
 
-# First, what's the max return for each day in the array? - outputs an array of that max returns
-# Only look at sells for following days
+# Looping variables for storing best return days and return while working through array.
+best_buy_day = 0
+best_sell_day = 0
+max_return = 0
 
-max_returns = []
-days_minus_one = prices.length - 1
+# Loop through buy days
+prices.each_with_index do |buy_price, buy_index|
 
-prices.each_with_index do |buy_price, index|
-  max_returns << prices[index..days_minus_one].max - buy_price
+  # Loop through remaining sell days
+  prices[(buy_index+1)..(prices.length)].each_with_index do |sell_price, net_sell_index|
+
+    # Reset best data if surpassed
+    if sell_price - buy_price > max_return
+      best_buy_day = buy_index
+      best_sell_day = net_sell_index + buy_index + 1
+      max_return = sell_price - buy_price
+    end
+  end
 end
 
-# What's the max of the max returns array?  What index?  This gives first in pair of days
-buy_day_index = max_returns.index(max_returns.max)
-first_sell_day = buy_day_index + 1
-sell_day_index = prices.index(prices[first_sell_day..days_minus_one].max)
-
-
-puts "Buy on day #{buy_day_index}, sell on day #{sell_day_index}."
+puts "Buy on day #{best_buy_day}, sell on day #{best_sell_day}, for a total return of #{max_return}."
 
 

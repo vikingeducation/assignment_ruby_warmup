@@ -19,10 +19,10 @@ def dice_outcomes(dice, rolls)
   # Output the outcomes graphically
   results_array = results.to_a.sort
   results_array.each do |result_pair|
-    puts "#{result_pair.first}: #{'#' * result_pair.last}"
+    puts "#{result_pair.first.to_s.rjust(4)}: #{'#' * result_pair.last}"
   end
 
   results
 end
 
-puts dice_outcomes(3, 100)
+puts dice_outcomes(4, 100)

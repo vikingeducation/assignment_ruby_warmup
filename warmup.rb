@@ -77,9 +77,37 @@ def stock_picker(stock_array)
   return days_best_profit
 end
 
-stock_picker([44, 30, 24, 32, 35, 30, 40, 38, 15])
-
 def anagrams(word)
+  dictionary = IO.readlines("enable.txt")
+  test_anagram_list = []
   anagram_list = []
+
+  letters = word.strip.split("")
+
+  #find number of possible permutations
+  permutations = 1
+  letters.size.downto(1) do |current_number|
+    permutations *= current_number
+  end
+
+  #find all possible permutations of the letters
+  while test_anagram_list.size < permutations - 1
+    test_anagram = "#{letters.shuffle.join}\n"
+
+    if test_anagram.strip != word.strip and !test_anagram_list.include?(test_anagram)
+      test_anagram_list.push(test_anagram)
+    end
+  end
+
+  test_anagram_list.each do |test_anagram|
+    if dictionary.include?(test_anagram)
+      anagram_list.push(test_anagram.strip)
+    end
+  end
+
+  anagram_list.sort!
+
   return anagram_list
 end
+
+anagrams("pears")

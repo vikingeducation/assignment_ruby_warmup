@@ -40,13 +40,37 @@ end
 
 def fibonacci(number)
   results = []
-  current = 1
-  last = 0
+  current_number = 1
+  last_number = 0
+  next_number = 0
   number.times do |iteration|
-    results.push(current)
-    current += last
-    last = current
+    results.push(current_number)
+    next_number = last_number + current_number
+    last_number = current_number
+    current_number = next_number
   end
 
   return results
+end
+
+def stock_picker(stock_array)
+  profit = 0
+  best_profit = 0
+  days_best_profit = [0,1]
+
+  index = 0
+  stock_array.each do |stock_price|
+    other_index = 0
+    (index+1).upto(stock_array.size-1) do |other_stock_price|
+      profit = other_stock_price - stock_price
+      if profit > best_profit
+        best_profit = profit
+        days_best_profit = [index, other_index]
+      end
+      other_index++
+    end
+    index++
+  end
+
+  return days_best_profit
 end

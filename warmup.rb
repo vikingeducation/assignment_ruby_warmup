@@ -60,17 +60,21 @@ def stock_picker(stock_array)
 
   index = 0
   stock_array.each do |stock_price|
-    other_index = 0
-    (index+1).upto(stock_array.size-1) do |other_stock_price|
-      profit = other_stock_price - stock_price
+    other_index = index+1
+    (index+1).upto(stock_array.length-1) do |later_day|
+
+      profit = stock_array[later_day] - stock_price
+
       if profit > best_profit
         best_profit = profit
         days_best_profit = [index, other_index]
       end
-      other_index++
+      #puts "#{index}, #{other_index}, #{profit}"
+      other_index += 1
     end
-    index++
+    index += 1
   end
-
   return days_best_profit
 end
+
+stock_picker([44, 30, 24, 32, 35, 30, 40, 38, 15])

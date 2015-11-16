@@ -1,5 +1,6 @@
 assignment_ruby_warmup
 ======================
+by Steven Chang
 
 Dice, dice, baby.
 

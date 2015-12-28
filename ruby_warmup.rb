@@ -73,3 +73,20 @@ def rolling_dice_outcomes(number_of_dice, number_of_rolls)
   end
   return outcomes
 end
+
+
+
+# Fibonacci
+
+def fibonacci(n, sequence=[1])
+  """
+  Fn = Fn-1 + Fn-2 
+  ^^^ with seed values F1 = 1, F2 = 1
+  """
+  (n-1).times do
+    current_number, last_number = sequence.last(2)
+    sequence << current_number + (last_number or 0)
+  end
+  return sequence
+end
+

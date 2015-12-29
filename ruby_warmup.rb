@@ -94,3 +94,25 @@ def stock_picker(days)
   end
   return best_days
 end
+
+
+
+# Anagram testing
+# input: single word
+# output: array of anagrams that can be made with the input
+
+def anagrams(word)
+  anagram_array = []
+
+  file = File.open("enable.txt", "r")
+  dictionary = file.readlines
+
+  letters = word.downcase.split(//).sort.join
+  dictionary.each do |match|
+    if match.chomp.split(//).sort.join == letters
+      anagram_array << match.chomp.upcase
+    end
+  end
+  return anagram_array -= [word.upcase]
+end
+

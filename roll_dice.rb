@@ -24,7 +24,10 @@ def dice_outcomes(num_dice, roll_times)
 		dice_sum.each do |number|
 			count_sum[number] += 1
 		end
-		count_sum.each { |key, value| puts "#{key}: #{value.times do print '#' end }" }
+		count_sum.each do |key, value| 
+			count = '#' * value
+			puts "#{key}: #{count}"
+		end
 end
 
 dice_outcomes(3, 20)
@@ -41,5 +44,5 @@ end
 fibonacci(7)
 
 def stock_picker(arr)
-	
+
 end

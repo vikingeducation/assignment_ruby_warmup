@@ -30,14 +30,16 @@ end
 dice_outcomes(3, 20)
 
 def fibonacci(num)
-	(1..num).map {|i| fibonacci(i)}
-	if num == 1
-		1
-	elsif num == 2
-		1
-	else 
-		fibonacci(num-1) + fibonacci(num-2)
+	a = 0
+	b = 1
+	num.times do 
+		a,b = b, a+b
 	end
+	a
 end
 
 fibonacci(7)
+
+def stock_picker(arr)
+	
+end

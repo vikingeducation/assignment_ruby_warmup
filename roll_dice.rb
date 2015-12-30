@@ -66,4 +66,18 @@ end
 puts stock_picker([44, 30, 24, 32, 35, 30, 40, 38, 15])
 
 def anagrams(string)
+	file = File.open("enable.txt")
+	dictionary = file.read.split
+	anagram_array = []
+	string_split = string.split('')
+	dictionary.each do |item|
+		item_split = item.split('')
+		if item_split.sort == string_split.sort
+			item_join = item_split.join('')
+			puts anagram_array.push(item_join)
+		end
+	end
+	puts anagram_array
 end
+
+anagrams("pears")

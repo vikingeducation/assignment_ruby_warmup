@@ -36,7 +36,7 @@ def fibonacci(num)
 	a = 0
 	b = 1
 	num.times do 
-		a,b = b, a+b
+		a, b = b, a + b
 	end
 	a
 end
@@ -44,5 +44,26 @@ end
 fibonacci(7)
 
 def stock_picker(arr)
+	pick_this = []
+	difference = 0
+	first_pick = 0
+	last_pick = 0
+	arr.each_with_index do |num1, i1|
+		arr.each_with_index do |num2, i2|
 
+			if  i2 > i1 && num2 - num1 > difference
+				difference = num2 - num1
+				first_pick = num1
+				last_pick = num2
+				pick_this[0] = i1
+				pick_this[1] = i2
+			end
+		end
+	end
+	pick_this
+end
+
+puts stock_picker([44, 30, 24, 32, 35, 30, 40, 38, 15])
+
+def anagrams(string)
 end

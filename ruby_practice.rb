@@ -10,12 +10,12 @@ end
 def dice_outcomes(dice, rolls)
   outcomes = {}
   face = 0
-
+#roll dice and add to hash/increment
   rolls.times do
     face = roll_dice(dice)
     outcomes[face] ? outcomes[face]+=1 : outcomes[face]=1
   end
-
+#sort results and output graphic rep
   outcomes.sort_by{|die, num| die}.each do |die, num|
     puts "#{die}: " + "#"*num
   end
@@ -32,7 +32,7 @@ def fibonacci(max)
     p fib
 end
 
-#use each with index
+
 def stock_picker(days)
   buy_day = 0
   buy = 0
@@ -40,21 +40,33 @@ def stock_picker(days)
   profit = 0
   while buy < days.length-1
     (buy..days.length-1).each do |sell|
+      #checks if profit is optimal & sets days
       if(days[sell]-days[buy] > profit)
         profit = days[sell]-days[buy]
         buy_day = buy
         sell_day = sell
-        puts profit
       end
     end
     buy += 1
   end
-  puts [buy_day, sell_day]
+  puts "Buy on day #{buy_day}, sell on day #{sell_day}"
 end
 
 
-def anagrams()
-  
+def anagrams(word)
+  dictionary = File.read("enable.txt").split
+  anagram = word.chars.to_a.sort
+  ans = []
+  dictionary.each do |entry|
+    if(entry.chars.to_a.sort == anagram && entry != word)
+      ans.push(entry)
+    end
+  end
+  print ans
 end
 
-puts dice_outcomes(3, 10)
+#testing
+dice_outcomes(3, 100)
+fibonacci(7)
+stock_picker([44, 30, 24, 32, 35, 30, 40, 38, 15])
+puts anagrams("pears")

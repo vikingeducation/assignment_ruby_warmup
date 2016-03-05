@@ -10,24 +10,18 @@ end
 def dice_outcomes(dice, rolls)
   outcomes = {}
   face = 0
+
   rolls.times do
     face = roll_dice(dice)
-    if outcomes[face]
-      outcomes[face]+=1
-    else
-      outcomes[face]=1
-    end
+    outcomes[face] ? outcomes[face]+=1 : outcomes[face]=1
   end
-  outcomes.sort_by{|die, num| die}.each do |die, num|
-    print "#{die}: "
-    num.times do
-      print '#'
-    end
-    puts
-  end
-  return outcomes.sort_by{|die, num| die}
-end
 
+  outcomes.sort_by{|die, num| die}.each do |die, num|
+    puts "#{die}: " + "#"*num
+  end
+
+  outcomes
+end
 
 
 def fibonacci(max)
@@ -38,5 +32,29 @@ def fibonacci(max)
     p fib
 end
 
+#use each with index
+def stock_picker(days)
+  buy_day = 0
+  buy = 0
+  sell_day = 0
+  profit = 0
+  while buy < days.length-1
+    (buy..days.length-1).each do |sell|
+      if(days[sell]-days[buy] > profit)
+        profit = days[sell]-days[buy]
+        buy_day = buy
+        sell_day = sell
+        puts profit
+      end
+    end
+    buy += 1
+  end
+  puts [buy_day, sell_day]
+end
 
-fibonacci(5)
+
+def anagrams()
+  
+end
+
+puts dice_outcomes(3, 10)

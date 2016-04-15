@@ -1,5 +1,7 @@
 assignment_ruby_warmup
 ======================
+This assignment was completed by [Stephen Mayeux](http://stephenmayeux.com)
+
 
 Dice, dice, baby.
 

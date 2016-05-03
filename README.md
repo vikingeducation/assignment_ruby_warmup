@@ -1,4 +1,4 @@
-assignment_ruby_warmup
+Philip Johnson's assignment_ruby_warmup
 ======================
 
 Dice, dice, baby.

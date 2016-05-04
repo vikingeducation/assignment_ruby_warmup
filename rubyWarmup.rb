@@ -69,18 +69,19 @@ def anagrams(word)
     dictionary = dictionary_file.readlines
   dictionary_file.close
 
-  #take off the new lines
+  #take off the new line characters of all the dictionary words.
   dictionary.each_index do |current_word|
     dictionary[current_word]=dictionary[current_word].chomp
   end
 
   #make an array of characters
+  word = word.downcase
   characters = word.split("")
 
   #using recursion, make each possible combination
   possibilities = find_combinations(characters)
 
-  #check to see if the combination is in our dictionary, and if so, add it to the list
+  #check to see if the combination is in our dictionary (minus the word itself)
   return possibilities & dictionary - [word]
 end
 
@@ -90,11 +91,15 @@ def find_combinations(elements)
   elements.each_index do |current_element|
 
     if elements.size > 1
+      #send the next recursive iteration an array of everything but the current element
       remainder = find_combinations(elements[0...current_element] + elements[current_element+1..-1])
-      remainder.each do |i|
-        combination_list << elements[current_element] + i
+
+      #then add all those combinations to our current element
+      remainder.each do |remainder_elements|
+        combination_list << elements[current_element] + remainder_elements
       end
     else
+      #it's our last stop
       combination_list = elements
     end
   end
@@ -102,5 +107,5 @@ def find_combinations(elements)
   combination_list
 end
 
-puts anagrams("pears").to_s
-# puts anagrams("zygote")
+puts anagrams("PEarS").to_s
+puts anagrams("viking").to_s

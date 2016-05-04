@@ -62,7 +62,6 @@ def stock_picker(prices)
 end
 
 def anagrams(word)
-  anagram_words = []
 
   dictionary_file = File.new("enable.txt", "r") if File::exists?( "enable.txt" )
     # build our dictionary array

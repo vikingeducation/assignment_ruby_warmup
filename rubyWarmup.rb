@@ -19,8 +19,8 @@ def dice_outcomes(number_of_dice, times_to_roll)
 
   #output a graph by building a line for each possible result
   (number_of_dice..number_of_dice*6).each do |roll_result|
-    result_graph_line = "#{roll_result}: ".ljust(4)
     if outcomes[roll_result]
+      result_graph_line = "#{roll_result}: ".ljust(4)
       outcomes[roll_result].times { result_graph_line << "\#" }
       puts result_graph_line
     end
@@ -106,5 +106,10 @@ def find_combinations(elements)
   combination_list
 end
 
-puts anagrams("PEarS").to_s
-puts anagrams("viking").to_s
+
+puts "Dice roll: " + roll_dice(4).to_s
+dice_outcomes(5,1000).to_s
+puts "Fibonacci: " + fibonacci(7).to_s
+puts "Best days: " + stock_picker([44, 30, 24, 32, 35, 30, 40, 38, 15]).to_s
+puts "Anagrams: " + anagrams("PEarS").to_s
+puts "Anagrams: " + anagrams("viking").to_s

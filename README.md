@@ -1,5 +1,5 @@
-assignment_ruby_warmup
-======================
+Morgan Martin's assignment_ruby_warmup
+======================================
 
 Dice, dice, baby.
 

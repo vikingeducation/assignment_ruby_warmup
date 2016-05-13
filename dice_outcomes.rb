@@ -12,7 +12,7 @@ number_of_rolls.times {
 
 # COUNT THE NUMBER OF OCCURENCES OF EACH NUMBER INJECTED IN NEW HASH
 # SORT THE HASH AND PRINT THE RESULT
-outcomes.inject(Hash.new(0)) { |total, e| total[e] += 1; total }.sort.each { |k, v|	puts "#{k}: #{"#"*v}"}
+outcomes.inject(Hash.new(0)) { |total, e| total[e] += 1; total }.sort.each { |k, v| k < 10 ? (puts "#{k}:  #{"#"*v}") : (puts "#{k}: #{"#"*v}") }
 
 end
 
@@ -31,4 +31,8 @@ return result
 
 end
 
-dice_outcomes(5,50)
+print %q(Please enter how many dice you have: )
+dice = gets.strip
+print %q(Thanks. Now how many times should I roll them? )
+rolls = gets.strip
+dice_outcomes(dice.to_i,rolls.to_i)

@@ -14,11 +14,9 @@ elsif number == 2
 end
 
 fib_array = [1,1]
-# DECLARE AN INDEX
-index = 0
 # STARTING WITH THE NUMBER
 # STARTING AT THE FIRST INDEX 0
-for num in (index...(number-2)) do
+for num in (0...(number-2)) do
 # STARTING WITH ONE AND THE FIRST INDEX
 	# ADD THE VALUE OF THE FIRST INDEX PLUS THE SECOND INDEX
 		# PUT THAT VALUE INTO THE ARRAY

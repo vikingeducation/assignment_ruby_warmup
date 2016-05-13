@@ -12,7 +12,12 @@ number_of_rolls.times {
 
 # COUNT THE NUMBER OF OCCURENCES OF EACH NUMBER INJECTED IN NEW HASH
 # SORT THE HASH AND PRINT THE RESULT
+=begin
 outcomes.inject(Hash.new(0)) { |total, e| total[e] += 1; total }.sort.each { |k, v| k < 10 ? (puts "#{k}:  #{"#"*v}") : (puts "#{k}: #{"#"*v}") }
+=end
+
+
+outcomes.inject(Hash.new(0)) { |total, e| total[e] += 1; total }.sort.each { |k, v| puts "#{k.to_s.ljust(3)} #{"#"*v}"}
 
 end
 

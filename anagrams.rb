@@ -8,7 +8,7 @@ def anagrams
 	word = "pears"
 # READ THE FILE AND STORE INTO AN ARRAY
 	dictionary_array = IO.readlines('/Users/JoeBernardi/VCS/Dictionary/dictionary.txt')
-regex = /^(?!.*(.).*\1)[pears]*$/
+  regex = /^(?!.*(.).*\1)[pears]*$/
 # DELETE /N FROM THE END OF EACH LINE
 	dictionary_array.each { |w| w.delete!("\n")}
 # SET UP THE NEW ARRAY TO STORE THE ANAGRAMS

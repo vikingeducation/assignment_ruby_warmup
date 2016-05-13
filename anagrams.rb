@@ -13,12 +13,12 @@ def anagrams(word)
 # SET UP THE NEW ARRAY TO STORE THE ANAGRAMS
 	anagram_array = []
 
-	dictionary_array.each { |w|
+	dictionary_array.each do |w|
 		if word.length == w.length
 			if word.chars.sort.join == w.chars.sort.join && w != word
 				anagram_array << w
 			end
-		end }
+		end
 
 =begin
 # CHECK EACH ITEM IN THE ARRAY TO SEE IF IT CONTAINS THE LETTERS

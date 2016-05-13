@@ -17,16 +17,16 @@ fib_array = [1,1]
 # STARTING WITH THE NUMBER
 # STARTING AT THE FIRST INDEX 0
 for num in (0...(number-2)) do
-# STARTING WITH ONE AND THE FIRST INDEX
+	# STARTING WITH ONE AND THE FIRST INDEX
 	# ADD THE VALUE OF THE FIRST INDEX PLUS THE SECOND INDEX
-		# PUT THAT VALUE INTO THE ARRAY
+	# PUT THAT VALUE INTO THE ARRAY
 	fib_array << (fib_array[num] + fib_array[num+1])
 	# THEN GO TO THE NEXT INDEX
 end
 
 print "The fibonacci array is: #{fib_array}"
 
-end
+end 
 
 puts %q(Please enter a number)
 number = gets.strip

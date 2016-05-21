@@ -1,6 +1,6 @@
-def roll_dice(sides = 1)
+def roll_dice(dice = 1)
 	sum = 0
-	sides.times do |index|
+	dice.times do |index|
 		sum += (rand(6) + 1)
 	end
 	sum

@@ -13,7 +13,6 @@ def stock_picker(prices)
 			end
 		end
 	end
-	puts best_days.inspect
 	best_days
 end
 

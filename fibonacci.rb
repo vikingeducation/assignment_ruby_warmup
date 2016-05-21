@@ -3,7 +3,7 @@ def fibonacci(num)
 	(num - 2).times do |i|
 		sequence << sequence[i] + sequence[i + 1]
 	end
-	puts sequence.inspect
+	sequence
 end
 
 fibonacci 7

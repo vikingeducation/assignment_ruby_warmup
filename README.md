@@ -1,5 +1,6 @@
 assignment_ruby_warmup
 ======================
+David Jiang
 
 Dice, dice, baby.
 

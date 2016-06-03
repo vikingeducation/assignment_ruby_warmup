@@ -67,6 +67,44 @@ end
 p fibonacci(7)
 puts "---------------"
 
+#Stock Picker
+def stock_picker(price_array)
+  max_profit = { value: 0, buy_day: 0, sell_day: 0};
 
+  price_array.each_with_index do |n, i|
+    j = i+1
+    while (j < price_array.size)
+      cur_profit = price_array[j] - price_array[i]
+      if max_profit[:value] < cur_profit
+        max_profit[:value] = cur_profit
+        max_profit[:buy_day] = i
+        max_profit[:sell_day] = j
+      end
+      j += 1
+      end
+    end
+  return [max_profit[:buy_day], max_profit[:sell_day]]
+end
+# Stock picker test
+p stock_picker([44, 30, 24, 32, 35, 30, 40, 38, 15])
 
+#Anagrams
+def anagrams(string)
+  # Init dictionary
+  dictionary = {}
+  File.readlines("enable.txt").each_with_index do |line, line_num|
+    dictionary[line.chomp] = true
+  end
 
+  # Convert string to array of char, so we can use array's powerful methods
+  arr = string.split("")
+  # Get all permutations of the string
+  arr = arr.permutation(arr.size).to_a.map { |item| item.join }
+  # Select only valid words
+  arr.select! { |item| dictionary[item] == true }
+  # Remove the string provided
+  arr - [string]
+end
+
+p anagrams("pears")
+p anagrams("zygote")

@@ -27,3 +27,20 @@ end
 
 dice_outcomes(3,100)
 puts "-"*9
+
+
+def fibonacci(sequence_number)
+	fib_list = []
+	a = 1
+	b = 1
+	fib_list.push(a).push(b)
+	(sequence_number-2).times do
+		c =  a + b
+		a = b
+		b = c
+		fib_list.push(c)
+	end
+	return fib_list
+end
+
+fibonacci(7)

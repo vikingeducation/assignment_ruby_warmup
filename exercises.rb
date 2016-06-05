@@ -18,7 +18,7 @@ def dice_outcomes(dice, repeat)
 
 # display results
 
-  result.each { |key, value| puts "#{key}: " + "#"*value }
+  result.each { |key, value| puts "#{key}:".ljust(4) + ("#"*value) }
 
 end
 
@@ -65,7 +65,6 @@ def anagrams(str)
   result.delete(str)
   result
 end
-
 
 
 

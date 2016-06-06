@@ -1,4 +1,4 @@
-########################################################
+####################################### => #################
 # Dice.rb                                              #
 #                                                      #
 # roll x number of dice y number of times and print    #
@@ -17,14 +17,11 @@ end
 
 def dice_outcomes(dice_num, roll_times)
 
-	roll_outcomes = {}
+	roll_outcomes = Hash.new(0)
 
 	roll_times.times do
 		current_roll = roll_dice(dice_num)
-
-		# check to see if the result exists in hash. If not, set the value for the key as 1. If so, increase the current value by 1.
-		roll_outcomes[current_roll].nil? ? roll_outcomes[current_roll] = 1 : roll_outcomes[current_roll] += 1 
-			
+		roll_outcomes[current_roll] += 1	
 	end
 
 	# iterate through the min possible and max possible number range for dice rolls and print result
@@ -40,4 +37,4 @@ def dice_outcomes(dice_num, roll_times)
 	end
 end
 
-dice_outcomes(1, 2)
+dice_outcomes(1, 6)

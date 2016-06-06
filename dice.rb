@@ -1,4 +1,4 @@
-####################################### => #################
+########################################################
 # Dice.rb                                              #
 #                                                      #
 # roll x number of dice y number of times and print    #
@@ -37,4 +37,4 @@ def dice_outcomes(dice_num, roll_times)
 	end
 end
 
-dice_outcomes(1, 6)
+dice_outcomes(2, 500)

@@ -1,29 +1,16 @@
 def anagrams(word)
-  lowercase_word = word.downcase
+  sorted_word = word.strip.downcase.chars.sort.join
+  actual_anagrams = []
 
-  # Obtain all the letters of the word in an array
-  letters = lowercase_word.split("")
-
-  # Read all the words from the Scrabble dictionary into a hash table.
-  # A hash table requires more memory than an array for storing words,
-  # but search is a lot faster in the former than it is in the latter.
-  dictionary = Hash.new
-  IO.foreach("./enable.txt") do |line|
-      a_word = line.strip
-      dictionary[a_word] = 1
+  File.foreach("./enable.txt") do |line|
+    dictionary_word = line.strip
+    sorted_line = dictionary_word.chars.sort.join
+    actual_anagrams << dictionary_word if sorted_line == sorted_word
   end
 
-  # Obtain all the possible anagrams of word in a lazy manner
-  possible_anagrams =
-    letters.permutation.lazy.map { |item| item.join }
+  actual_anagrams -= [ word.strip ]
 
-  # Filter the possible anagrams using the dictionary
-  actual_anagrams =
-    possible_anagrams.select { |item| dictionary.has_key?(item) }
-
-  # Final list of anagrams
-  final_list = actual_anagrams.to_a.uniq.sort - [ lowercase_word.strip ]
-
-  final_list.map { |item| item.upcase }
+  # Return the final list of anagrams in upper case
+  actual_anagrams.map { |item| item.upcase }
 
 end

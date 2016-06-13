@@ -1,3 +1,11 @@
+
+This repository contains fun Ruby exercises.
+
+Highlights:
+
+  * Enumerable
+  * Blocks
+
 assignment_ruby_warmup
 ======================
 

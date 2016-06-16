@@ -53,18 +53,17 @@ class Test
   def stock_picker(array_numbers)
     #did this one during interview
     profit = 0
-    findex1 = 0
-    findex2 = 0
+    findex = Array.new(2)
     array_numbers.each_with_index do |val1, index1|
       array_numbers[index1..-1].each_with_index do |val2, index2|
         if val2 - val1 > profit
           profit = val2 - val1
-          findex1 = index1
-          findex2 = index2
+          findex[0] = index1
+          findex[1] = index2
         end
       end
     end
-    return [findex1, findex2]
+    return findex
   end
 
   def anagrams(a_string)
@@ -90,7 +89,7 @@ end
 # test1 = theTester.roll_dice(3)
 # test2 = theTester.dice_outcomes(3,100)
 # test3 = theTester.fibonacci(7)
-# test4 = theTester.stock_picker([44,30,24,32,35,30,40,38,15])
+#test4 = theTester.stock_picker([44,30,24,32,35,30,40,38,15])
 # test5 = theTester.anagrams("pears")
 
 # print test1 ,"\n", test2, "\n", test3, "\n", test4, "\n", test5, "\n"

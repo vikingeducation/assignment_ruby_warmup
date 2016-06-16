@@ -83,14 +83,13 @@ class Test
 end
 
 # testing outputs of functions
-theTester = Test.new
+# theTester = Test.new
 # print " * * * * * testing stuff * * * * * \n"
 
 # test1 = theTester.roll_dice(3)
 # test2 = theTester.dice_outcomes(3,100)
 # test3 = theTester.fibonacci(7)
-test4 = theTester.stock_picker([44,30,24,32,35,30,40,38,15])
-print test4
+# test4 = theTester.stock_picker([44,30,24,32,35,30,40,38,15])
 # test5 = theTester.anagrams("pears")
 
 # print test1 ,"\n", test2, "\n", test3, "\n", test4, "\n", test5, "\n"

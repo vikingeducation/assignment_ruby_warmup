@@ -69,4 +69,23 @@ def stock_picker stock_values
 	most_profitable_pair[0], most_profitable_pair[1] = buy_day, sell_day
 end
 
-puts stock_picker([44, 30, 24, 32, 35, 30, 40, 38, 15])
+def anagrams str 
+	all_anagrams = []
+	dictionary = []
+
+	File.read("enable.txt").each_line do |line|
+  		dictionary << line.chop
+	end
+
+	combos = str.split('').permutation.to_a
+	combos.each_with_index do |item, index|
+		word = item.join('')
+		if dictionary.include?(word)
+			all_anagrams << word
+		end
+	end
+	all_anagrams.sort
+end
+
+puts anagrams("pears")
+

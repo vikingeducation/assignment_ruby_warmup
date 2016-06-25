@@ -77,8 +77,5 @@ def anagrams(word)
   return dictionary
 end
 
-puts anagrams("strontianite")
-
-
 
 #############################################################

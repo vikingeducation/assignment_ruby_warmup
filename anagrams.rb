@@ -4,7 +4,7 @@ def anagrams(word)
   file.close
 
   anagrams = []
-  sorted_word = word.chars.sort.join
+  sorted_word = word.downcase.chars.sort.join
   
   dictionary.each do |dictionary_word|
     sorted_dictionary_word = dictionary_word.chars.sort.join

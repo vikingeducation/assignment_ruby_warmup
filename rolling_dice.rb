@@ -1,4 +1,4 @@
-def roll_dice(rolls=1)
+def roll_dice(rolls = 1)
   result = 0
 
   rolls.times do |roll|

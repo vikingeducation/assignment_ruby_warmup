@@ -1,6 +1,6 @@
 DICTIONARY = File.read('enable.txt').split(/\n/)
 
-def letter_frequency(word)
+def letter_frequency_of(word)
   frequency_count = {}
 
   word.split('').each do |letter|
@@ -18,10 +18,10 @@ def anagrams(user_word)
   puts "The anagrams for the word #{user_word} are:"
   list_of_anagrams = []
 
-  letter_count_of_user_word = letter_frequency(user_word)
+  letter_count_of_user_word = letter_frequency_of(user_word)
 
   DICTIONARY.each do |word|
-    letter_count_of_dictionary_word = letter_frequency(word)
+    letter_count_of_dictionary_word = letter_frequency_of(word)
 
     if letter_count_of_user_word == letter_count_of_dictionary_word
       list_of_anagrams << word

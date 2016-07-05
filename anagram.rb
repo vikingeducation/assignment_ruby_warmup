@@ -31,6 +31,6 @@ def anagrams(user_word)
   p list_of_anagrams
 end
 
-anagrams("pears")
-anagrams("stars")
-anagrams("stairs")
+anagrams('pears')
+anagrams('stars')
+anagrams('stairs')

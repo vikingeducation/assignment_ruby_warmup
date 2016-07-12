@@ -1,5 +1,4 @@
 def dice_outcome(dice, roll_times)
-
   data = {}
 
   1.upto(roll_times) do |i|
@@ -7,9 +6,8 @@ def dice_outcome(dice, roll_times)
   end
 
   data.each do |k, v|
-    puts "#{k}: #{"#" * v }"
+    puts "#{k}: #{'#' * v}"
   end
-
 end
 
 puts dice_outcome(3, 10)

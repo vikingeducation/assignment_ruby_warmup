@@ -9,7 +9,7 @@ class String
 end
 
 
-def anagram input_word
+def anagram_bad input_word
   result = []
   input_word.all_possible_combinations.each do |word|
     result << word if (in_dictionary? word) && (word != input_word)

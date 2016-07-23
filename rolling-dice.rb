@@ -12,7 +12,7 @@ def dice_outcomes dice_number, roll_number
   result_sorted = all_rolls_sum.sort_by{ |each_roll_sum, value| each_roll_sum }
   max_roll_length = all_rolls_sum.keys.max.to_s.length
   result_sorted.each do |each_roll_sum, value|
-    puts "#{each_roll_sum}:" + " " * (max_roll_length + 1 - each_roll_sum.to_s.length) + "#" * value
+    puts "#{each_roll_sum}: ".ljust(max_roll_length + 1) + "#" * value
   end
   result_sorted
 end

@@ -16,3 +16,19 @@ def anagram_bad input_word
   end
   result.sort
 end
+
+def anagram(str)
+  # load dictionary
+  dict = File.readlines("enable.txt").map{ |l| l.strip.upcase }
+
+  # check for anagrams
+  anagrams = []
+  str.upcase!
+  dict.each do |word|
+    next unless word.length == str.length
+    next if word == str
+    anagrams << word if word.chars.sort.join == str.chars.sort.join
+  end
+
+  anagrams
+end

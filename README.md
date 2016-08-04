@@ -8,4 +8,3 @@ Dice, dice, baby.
 <hr>
 <hr>
 <h1>Kenny Kottenstette</h1>
-<h2><a href="#">Click for Preview!</a></h2>

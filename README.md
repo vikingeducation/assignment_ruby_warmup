@@ -1,5 +1,6 @@
 assignment_ruby_warmup
 ======================
+### Tim Scott's solution.
 
 Dice, dice, baby.
 

@@ -8,7 +8,7 @@ You can use Dir.pwd to output the current directory. If you can't find the dicti
 =end
 
 def anagrams(str)
-    dictionary = ["APERS","APRES","ASPER","PARES","PARSE","PRASE","PRESA","RAPES","REAPS","SPARE","SPEAR", "", "SOR", "APREE"]
+    dictionary = ["APERS","APRES","ASPER","PARES","PARSE","PRASE","PRESA","RAPES","REAPS","SPARE","SPEAR", "", "SOR", "APREE", "KARAMBA"]
     answers =[]
     dictionary.each do |word|
         if word.length == str.length && word != str
@@ -30,10 +30,8 @@ def anagrams(str)
     answers
 end
 
-
-# Note: "pears" doesn't appear in the output
-print anagrams("pears")
+#print anagrams("pears")
 # => ["APERS","APRES","ASPER","PARES","PARSE","PRASE","PRESA","RAPES","REAPS","SPARE","SPEAR"]
 
-print anagrams("zygote")
+#print anagrams("zygote")
 #=> []

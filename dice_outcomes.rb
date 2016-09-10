@@ -3,14 +3,10 @@ def roll_dice(x=1)
     x==1 ? y:  y + roll_dice(x-1)
 end
 
-def dice_outcomes(dice_no,roll_times)
+def dice_outcomes(dice_no=1,roll_times=100)
     rolls_storage=[]
-    while roll_times>0
-        rolls_storage << roll_dice(dice_no)
-        roll_times -=1
-    end
-    rolls_storage.sort!
-    unique_storage = rolls_storage.uniq
+    roll_times.times  { |x| rolls_storage << roll_dice(dice_no) }
+    unique_storage = rolls_storage.sort.uniq
     scores={}
     unique_storage.each do |x|
         v=0
@@ -22,6 +18,7 @@ def dice_outcomes(dice_no,roll_times)
     scores.each do |k,v|
         k>9? puts("#{k}: #{'#'*v}"): puts("#{k}:  #{'#'*v}")
     end
+    scores
 end
 
 dice_outcomes(3,100)

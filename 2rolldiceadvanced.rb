@@ -16,16 +16,26 @@ def dice_outcomes(rolls, times)
 
   while 0 < times
    val = roll_dice(rolls, 6)
-   puts "this is #{val}"
    list_of_rolls.push(val)
    times -= 1
-   puts times
   end
-  list_of_rolls.each do |item|
-    finalvalue += item
+  
+  unique_array = list_of_rolls.uniq
+  unique_array.sort!
+
+  unique_array.each do |uniquenumber|
+    howmany = list_of_rolls.count(uniquenumber)
+    hashes = "#" * howmany
+    puts "#{uniquenumber}: #{hashes} (#{howmany})" #its really hard to count hashes, so I added a summary number
   end
-  puts finalvalue
-  return finalvalue
+
 end
 
+puts "test1"
 dice_outcomes(1, 10)
+puts "test2"
+dice_outcomes(3, 100)
+puts "test3"
+dice_outcomes(20,10)
+puts "test4"
+dice_outcomes(10, 1)

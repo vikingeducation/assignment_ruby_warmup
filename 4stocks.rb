@@ -7,7 +7,7 @@ def stock_picker(stocks_list)
   final_sell_stock = nil
   current_difference = 0
   position = 0 
-  sell_pos = 0
+  sell_pos = nil
   buy_pos = 0
 
   stocks_list.each do |stock|
@@ -29,12 +29,23 @@ def stock_picker(stocks_list)
   buy_pos = stocks_list_original.index(final_buy_stock)
 
 
-  puts "final profit is #{-1* current_difference}, bought #{final_buy_stock}, sold #{final_sell_stock}"
-  puts "boutght at #{buy_pos} sold at #{sell_pos}"
 
-  return sell_pos, buy_pos
+  unless (sell_pos == nil) || (buy_pos == nil) 
+      puts "final profit is #{-1* current_difference}, bought #{final_buy_stock}, sold #{final_sell_stock}"
+      puts "bought at #{buy_pos} sold at #{sell_pos}"
+    
+      return sell_pos, buy_pos
+  else 
+    puts "there was no profit to be had today"
+    return nil
+  end
+  
 end
 
-stock_picker([44, 30, 24, 32, 35, 30, 40, 38, 15]) #2. 6
+stock_picker([44, 30, 24, 32, 35, 30, 40, 38, 15]) #2 6
 
 stock_picker([1, 30, 24, 32, 35, 30, 40, 38, 15]) #0 6
+
+stock_picker([44, 44, 44, 44, 44, 44, 44, 44, 44]) #no profit
+
+stock_picker([100, 90, 21, 22, 44, 90, 10, 2, 10]) #2 5

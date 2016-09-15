@@ -9,6 +9,7 @@ def roll_dice(num = 1, sides = 6)
   end
 
   puts "The sum of #{dice} #{sides} sided dice being rolled is #{holder}"
+  return holder
 
 end
 

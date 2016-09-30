@@ -21,7 +21,18 @@ def dice_outcomes(num_dice, num_times_roll)
       running_total[current_sum] = 1
     end
   end
-  puts "#{running_total}"
+
+  size = running_total.length
+
+  # Print the hash in a graphical format
+  running_total.each do |key, freq_value|
+    print_frequency = ""
+    freq_value.times do
+      print_frequency += "#"
+    end
+
+    puts "#{key}: #{print_frequency}"  
+  end
 end
 
 dice_outcomes(3,5)

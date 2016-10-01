@@ -10,9 +10,8 @@ def anagrams(word)
   # Print working directory
   current_dir = Dir.pwd
 
-  word_dictionary = Hash.new(Array.new)
+  word_dictionary = Hash.new([])
   # The values in the hash to be stored as an array
-  words_so_far = [] 
 
   File.open(current_dir+"/enable.txt", "r").each do |line|
     clean_word = line.chomp
@@ -20,20 +19,17 @@ def anagrams(word)
 
     # If the hash key is already present append to it or add it as a new key
     if(word_dictionary.key?(sorted_word))
-      word_dictionary[sorted_word] += clean_word
+      word_dictionary[sorted_word] += [clean_word]
     else
       # Add a new key to the hash - words are stored in an array
-      # word_dictionary[sorted_word] = words_so_far << clean_word
-      word_dictionary[sorted_word] = clean_word
+      word_dictionary[sorted_word] = [clean_word]
     end
   end
 
   # For the given word, print its anagrams from the hash
-  
-  puts
 
   if(word_dictionary.key?(anagram_to_find))
-    puts word_dictionary[anagram_to_find]
+    print word_dictionary[anagram_to_find]
   else
     puts "[]"
   end
@@ -41,4 +37,4 @@ end
 
 
 anagrams("pears")
-# anagrams("abacus")
+anagrams("abacus")

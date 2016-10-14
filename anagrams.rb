@@ -5,3 +5,4 @@ def anagrams(word)
   words
 end
 puts anagrams("pears")
+puts anagrams("zygote")

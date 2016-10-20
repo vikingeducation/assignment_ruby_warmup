@@ -1,3 +1,4 @@
+# roll (num_dice) amount of dice & return result
 def roll_dice num_dice=1
 
 	# initialize

@@ -1,3 +1,4 @@
+# return fibonacci sequence of length (num)
 def fibonacci(num)
 
 	# deal with 0 & negatives

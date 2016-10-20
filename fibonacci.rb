@@ -1,3 +1,6 @@
+#fibonacci.rb outputs the Fibonacci Sequence members out to the specified
+#number of members.
+
 def fibonacci
   fib_array = [0,1]
   a = 0

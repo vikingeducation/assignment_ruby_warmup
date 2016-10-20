@@ -1,3 +1,7 @@
+#stockpicker.rb takes an array of stock prices (prices on days 0, 1, ...)
+#and outputs the most profitable pair of days on which to first buy the stock
+#and then sell the stock.
+
 def stock_picker(stock_prices)
   best_buy_price = [100]
   best_buy_day = []

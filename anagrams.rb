@@ -1,9 +1,21 @@
+
 def anagrams(input)
   array = input.split('')
   collection = []
   permutations(array.length, array, collection)
   collection.map! { |array| array.join('') }
-  print collection.to_s + "\n"
+  dictionary = []
+  File.open("enable.txt") do |file|
+    file.each_line do |line|
+      dictionary.push(line.chomp)
+    end
+  end
+  output = []
+  collection.each do |permutation|
+    output.push(permutation) if dictionary.include? permutation
+  end
+  output = output - [input]
+  print output.to_s + "\n"
 end
 
 def permutations(n, array, collection) # by Heap's algorithm
@@ -25,3 +37,4 @@ def permutations(n, array, collection) # by Heap's algorithm
 end
 
 anagrams("pears")
+anagrams("zygote")

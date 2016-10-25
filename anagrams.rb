@@ -1,15 +1,18 @@
 def anagrams(input)
   array = input.split('')
-  permutations(array.length, array)
+  collection = []
+  permutations(array.length, array, collection)
+  collection.map! { |array| array.join('') }
+  print collection.to_s + "\n"
 end
 
-def permutations(n, array) # by Heap's algorithm
+def permutations(n, array, collection) # by Heap's algorithm
   if n == 1 then
-    print array.to_s + "\n"
+    collection.push(array.dup)
   else
     i = 0
     loop do
-      permutations(n-1, array)
+      permutations(n-1, array, collection)
       break if i == n-1
       if n.even? then
         array[i], array[n-1] = array[n-1], array[i]

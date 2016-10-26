@@ -1,5 +1,6 @@
 assignment_ruby_warmup
 ======================
+Jessica Gillan
 
 Dice, dice, baby.
 

@@ -1,6 +1,11 @@
 def roll_dice(number_of_dice=1)
- return (number_of_dice + rand(number_of_dice*6))
+
+  result = 0
+  number_of_dice.times { result += (1 + rand(6))}
+  puts result
+
 end
 
 
-roll_dice(4)
+
+roll_dice

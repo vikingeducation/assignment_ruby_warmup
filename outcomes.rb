@@ -13,7 +13,7 @@ def dice_outcomes(number_of_dice, number_of_times)
 
 #print results in visual chart
   frequencies.each do |outcome, frequency|
-    puts "#{outcome}:" + ('#' * frequency)
+    puts "#{outcome}: " + ('#' * frequency)
   end
 
 end

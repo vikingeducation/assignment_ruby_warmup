@@ -1,3 +1,7 @@
 def roll_dice(n=1)
-  rand( 6 * n ) + 1
+  result = 0
+  n.times do
+    result += rand(6) + 1
+  end
+  result
 end

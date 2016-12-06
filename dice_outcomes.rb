@@ -1,13 +1,16 @@
 def dice_outcomes(dice, rolls)
   outcomes = {}
-  rolls.times do 
-    outcome = rand(6 * dice) + 1
-    outcomes[outcome] = outcomes[outcome]? outcomes[outcome] + 1 : 1
+  rolls.times do
+    total = 0
+    dice.times do
+      total += rand(6) + 1
+    end
+    outcomes[total] = outcomes[total]? outcomes[total] + 1 : 1
   end
-  (1..(dice*6)).each do |n|
-      puts "#{n}\: " + ("#" * outcomes[n]) if outcomes[n]
+  (dice..(dice*6)).each do |n|
+    puts "#{n}\: #{"#" * outcomes[n] if outcomes[n]}"
   end
-  outcomes 
+  outcomes
 end
 
-dice_outcomes(4, 100)
+p dice_outcomes(3, 128)

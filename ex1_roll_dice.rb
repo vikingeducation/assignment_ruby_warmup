@@ -3,13 +3,21 @@
 # should be 1).
 
 def roll_dice(num_dice = 1)
+  result = 0
+
+  die = (1..6).to_a
+  num_dice.times do
+    result += die.sample
+  end
+
+  return result
 end
 
 
 
 puts roll_dice(4)
-#=> 18          # Rolled 4 dice
+#=> > random number between 1 and 24
 puts roll_dice(2)
-#=> 4           # Rolled 2 dice
+#=> > random number between 1 and 12
 puts roll_dice
-#=> 1           # Rolled 1 die
+#=> > random number between 1 and 6

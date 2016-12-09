@@ -1,5 +1,6 @@
 assignment_ruby_warmup
 ======================
+Egle Libby
 
 Dice, dice, baby.
 

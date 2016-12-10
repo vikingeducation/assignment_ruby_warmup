@@ -5,7 +5,7 @@ def fibonacci(n)
   result = []
   a, b = 0, 1
 
-  1.upto(n).each do |i|
+  1.upto(n).each do
     a, b = b, a + b
     result << a
   end

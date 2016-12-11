@@ -4,12 +4,9 @@
 
 def roll_dice(num_dice = 1)
   result = 0
-
-  die = (1..6).to_a
   num_dice.times do
-    result += die.sample
+    result += rand(6) + 1
   end
-
   return result
 end
 

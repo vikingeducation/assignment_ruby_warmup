@@ -1,7 +1,9 @@
+#Write a method roll_dice which returns the result of rolling N 6-sided dice where N is the input to the method (the default should be 1)
+
 def roll_dice(n=1)
   result = 0
-  dice = rand(6) + 1
-  n.times do 
+  n.times do
+    dice = rand(6) + 1 
     result += dice
   end
   return result

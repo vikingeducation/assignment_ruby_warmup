@@ -17,12 +17,13 @@ def dice_outcomes(num_dice, num_times)
   num_times.times do
     roll = roll_dice(num_dice) 
     result[roll] += 1
-      # result.sort.each do |roll, num_times|
-      #   puts "#{roll}: " + "#" * frequency
-      # end
+  end
+  (num_dice * 6).times do |index|
+    puts result[index + 1] 
+    #visual output
   end
 end
 
 
-dice_outcomes(4,20)
+dice_outcomes(1,20)
 

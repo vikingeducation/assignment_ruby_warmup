@@ -2,15 +2,23 @@
 #Fibonacci Sequence members out to the 
 #specified number of members.
 
-def fibonacci(number)
-  start_number = 1
-  number.times do 
-    sequence = start_number + start_number
-    puts sequence
+def fibonacci(number_stop)
+  if number_stop == 1
+    return [0]
   end
+  fib_array = [0, 1]
+  until fib_array.length == number_stop do
+    add = fib_array[-1] + fib_array[-2]
+    fib_array.push(add)
+  end
+  fib_array
 end
 
-puts fibonacci(7)
-puts fibonacci(18)
+puts fibonacci(1)
 
-#need to make this an array
+
+#should be array and until loop?  
+#Loop to add the numbers until you reach the 
+#number argument?
+#How to set up array so that numbers 
+#are pushed onto the end of it?

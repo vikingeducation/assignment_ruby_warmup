@@ -1,8 +1,8 @@
 def fibonacci(current_num, cache)
   if current_num === 0 || current_num === 1
-    return 1
+    1
   else
-    return cache[current_num] ||= (fibonacci(current_num - 1, cache) + fibonacci(current_num - 2, cache))
+    cache[current_num] ||= (fibonacci(current_num - 1, cache) + fibonacci(current_num - 2, cache))
   end
 end
 
@@ -16,5 +16,6 @@ def render_fibonacci_sequence(nth_place, nth_cache = {})
   print fib_sequence
 end
 
-
-render_fibonacci_sequence(40)
+print 'Please enter the number you want to find the fibonacci sequence to: '
+nth_place_to_find = gets.chomp.to_i
+render_fibonacci_sequence(nth_place_to_find)

@@ -1,4 +1,4 @@
-def stock_picker(stock_prices = [44, 30, 24, 32, 35, 30, 40, 38, 15, 30].shuffle)
+def stock_picker(stock_prices = [44, 30, 24, 32, 35, 30, 40, 38, 15, 30])
   profit = 0
   start_index = 0
   highest_index = 0
@@ -20,7 +20,12 @@ def stock_picker(stock_prices = [44, 30, 24, 32, 35, 30, 40, 38, 15, 30].shuffle
   }
 end
 
-stock_price_history = [44, 30, 24, 32, 35, 30, 40, 38, 15, 30].shuffle
+stock_price_history = []
+
+10.times do
+  stock_price_history << Random.new.rand(10..50)
+end
+
 print "#{stock_price_history}\n"
 
 analysis_result = stock_picker(stock_price_history)

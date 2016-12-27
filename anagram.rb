@@ -15,3 +15,21 @@
 # double check the directory you're executing your 
 # script from within.
 
+def anagrams(word)
+  
+
+  
+end
+
+puts anagrams("pears")
+puts anagrams("zygote")
+
+
+
+
+
+
+#Take a word as an argument
+#Return anagrams of that word
+#Download enable.txt and use 
+#input/output to take words from that dictionary

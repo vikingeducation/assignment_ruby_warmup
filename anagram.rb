@@ -15,21 +15,22 @@
 # double check the directory you're executing your 
 # script from within.
 
-def anagrams(word)
-  
-
-  
+def anagrams(word, enable)
+  words = word.chars.sort.join
+  enable_words = enable.chars.sort.join
+  if (words == enable_words)
+    return enable
+  end
 end
 
-puts anagrams("pears")
-puts anagrams("zygote")
+puts anagrams("pears", "spear")
+puts anagrams("zygote", "spear")
+puts anagrams("apple", "elppa")
+puts anagrams("apple", "app")
 
 
-
-
-
-
-#Take a word as an argument
-#Return anagrams of that word
-#Download enable.txt and use 
-#input/output to take words from that dictionary
+#Take word as an argument
+#read each line of enable
+#filter out all words that have the same characters
+#print those words from enable
+#lines = IO.readlines("enable.txt")

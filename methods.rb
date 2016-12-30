@@ -65,18 +65,28 @@ def dice_outcomes(number_of_dice, times_to_roll)
 
 	end
 
-	# return outcome_tracker
 end
 
-puts dice_outcomes(4, 5)
+# puts dice_outcomes(4, 5)
 
 
 
 
+# ____________________________________________________
+# ******************Fibonacci**********************
+# ----------------------------------------------------
+
+def fibonacci (numbers_in_sequence)
+	sequence_array =[1, 1]
+
+	numbers_in_sequence.times do 
+		next_number = sequence_array[-1] + sequence_array[-2]
+		sequence_array << next_number
+	end
+
+	return sequence_array
+
+end
 
 
-
-
-# colorHash.each do |codeType, color|
-#   puts codeType + ':  ' + color
-# end
+print fibonacci(9)

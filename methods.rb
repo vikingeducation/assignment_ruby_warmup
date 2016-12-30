@@ -30,15 +30,16 @@
 
 def dice_outcomes(number_of_dice, times_to_roll)
 
+	max_sum = 6*number_of_dice
+
 	# Create a hash to track the number of times each value is rolled. 
 	outcome_tracker = {}
 
 	# Roll all the dice times_to_roll times
 	times_to_roll.times do
 		
-		# Find a random number between 1 and 6 * number_of_dice 	
-		max_sum = 6*number_of_dice
-		outcome = rand(max_sum) + 1
+		# Find a random number between number of dice (min) and max_sum
+		outcome = (number_of_dice - 1) + (rand((max_sum+1) - number_of_dice) + 1)
 
 		# determine if the outcome is already a key in the outcome_tracker
 		if outcome_tracker.include?(outcome)
@@ -54,23 +55,20 @@ def dice_outcomes(number_of_dice, times_to_roll)
 
 
 
-	# Print the chart 
+	# Print the chart from leaset to greatest outcome
+	number_of_dice.upto(max_sum) do |possible_outcome| 
 
+		# check to see if the outcome has been rolled
+		if outcome_tracker.include?(possible_outcome)
+			puts "#{possible_outcome}: " + ("#" * outcome_tracker[possible_outcome])
+		end
 
+	end
 
-
-
-
-return outcome_tracker
-
-
+	# return outcome_tracker
 end
 
-
-
-
-
-puts dice_outcomes(4, 20)
+puts dice_outcomes(4, 5)
 
 
 

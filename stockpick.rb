@@ -3,39 +3,33 @@
 # outputs the most profitable pair of days on which 
 # to first buy the stock and then sell the stock
 
-def stock_picker
+def stock_picker(stock_prices)
 
-  prices = [68, 40, 45, 15, 12, 34, 67, 11]
+  max_profit = 0
+  best_days = []
 
-  low_price = prices.min
-  buy_day = prices.index(low_price) + 1
+  #Loop through stock prices taking in the buying price and the buying index.
 
-  high_price = prices.drop(1).max
-  sell_day = prices.index(high_price) + 1
-  
-  puts "Buy at #{low_price} on day #{buy_day}.  Sell at #{high_price} on day #{sell_day}."
+  stock_prices.each_with_index do |buying_price, index|
 
+    #While in that loop, loop through stock prices adding one to get the sell price.
+    (index+1).upto(stock_prices.length - 1) do |selling_index|
+      selling_price = stock_prices[selling_index]
+
+    #check to see what the profit would be if you subtracted the buying price from the selling price.
+      profit = selling_price - buying_price
+
+    #Update the maximum profit each time.  Use .max on the array to ensure you 
+    #return only the highest profit.
+      if profit > max_profit
+        max_profit = profit
+        best_days = [index, selling_index]
+      end
+
+    end
+  end
+  best_days
 end
 
-stock_picker 
+puts stock_picker([44, 30, 24, 32, 35, 30, 40, 38, 15])
 
-
-
-
-#Iterate through the array to find the 
-#highest value that is not the first value.
-
-#Then, iterate through the array to find the 
-#lowest value before the highest value.
-
-#The first value is the best sell day, 
-#and the second value is the best buy day.
-
-#Phil - not necessarily the min and the max.  
-#Could be a medium price and a high price.  
-#Better to start at the beginning.
-
-#Return index value of high 
-#and low price for the day to buy and sell.
-
-#How to stop iterating before sell_day?

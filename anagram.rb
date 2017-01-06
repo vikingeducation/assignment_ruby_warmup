@@ -15,22 +15,13 @@
 # double check the directory you're executing your 
 # script from within.
 
-def anagrams(word, enable)
-  words = word.chars.sort.join
-  enable_words = enable.chars.sort.join
-  if (words == enable_words)
-    return enable
-  end
+def anagrams(word)
+  sort_word = word.split("").sort.join
+  anagrams_array = []
+  IO.foreach("enable.txt") {|line| anagrams_array << line.chomp}
+  anagrams_array.select do |anagram| 
+    anagram.split("").sort.join == sort_word
+  end 
 end
 
-puts anagrams("pears", "spear")
-puts anagrams("zygote", "spear")
-puts anagrams("apple", "elppa")
-puts anagrams("apple", "app")
-
-
-#Take word as an argument
-#read each line of enable
-#filter out all words that have the same characters
-#print those words from enable
-#lines = IO.readlines("enable.txt")
+puts anagrams("enable")

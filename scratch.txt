@@ -1,0 +1,34 @@
+Fib
+First number is 0
+Second number is 1
+Third number is 1
+Nth number is n-1 + n-2
+
+stock
+loop through array
+Take day n (starts at 0)
+Subtract day n from day n + 1
+Store result in variable
+Subtract day n from day n + 2
+Compare with previous result
+If new result is greater than old result store and
+Grow subtractor array position by 1 until result is lower
+If result is lower grow subtractee by 1 and repeat from line 13
+when array has been looped over return result
+
+anagrams
+take input from user
+Use permutations to derive all possible configurations
+Load them into an array
+Loop over array
+Check if item included in text file
+If included load in array
+Print array
+
+
+towers
+Print Game world
+Ask user for input
+If there is no piece smaller that piece user is moving on destination, move piece
+Else let user know move is illegal
+Game is over when tower in on last column

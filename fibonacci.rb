@@ -1,6 +1,6 @@
 def fibonacci(current_num, cache)
   if current_num === 0 || current_num === 1
-    1
+    current_num
   else
     cache[current_num] ||= (fibonacci(current_num - 1, cache) + fibonacci(current_num - 2, cache))
   end
@@ -14,6 +14,7 @@ def render_fibonacci_sequence(nth_place, nth_cache = {})
   end
 
   print fib_sequence
+  puts
 end
 
 print 'Please enter the number you want to find the fibonacci sequence to: '

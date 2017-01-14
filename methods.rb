@@ -85,8 +85,57 @@ def fibonacci (numbers_in_sequence)
 	end
 
 	return sequence_array
-
 end
 
 
-print fibonacci(9)
+# print fibonacci(9)
+
+
+
+# ____________________________________________________
+# ******************Stock Picker**********************
+# ----------------------------------------------------
+
+def stock_picker(stock_prices)
+  
+
+  buy_day = 0 
+	sell_day = stock_prices.length - 1
+	
+
+
+# Subtract stock_prices[first_day] from stock_prices[last_day] and Set	max_profit = the difference. 
+	max_profit = stock_prices[sell_day] - stock_prices[buy_day]
+	best_days_to_trade = [buy_day, sell_day]
+
+
+	until sell_day == 0 
+		puts sell_day
+
+								  while buy_day < sell_day 
+										buy_price = stock_prices[buy_day]
+										sell_price = stock_prices[sell_day] 
+										profit = sell_price - buy_price
+										print [buy_day, sell_day, profit]
+										puts " "
+
+											if profit > max_profit
+												max_profit = profit
+												best_days_to_trade = [buy_day, sell_day]
+											end 	
+
+										buy_day += 1 
+									end
+
+		sell_day -= 1
+	end
+		# end
+
+
+		print best_days_to_trade
+
+	end
+
+end
+
+stock_picker([44, 30, 24, 32, 35, 30, 40, 38, 15]) 

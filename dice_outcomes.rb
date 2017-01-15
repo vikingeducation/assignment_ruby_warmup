@@ -13,7 +13,11 @@ def dice_outcomes (number_dice, number_times_roll)
   end
 
   ((number_dice-1)..(max_roll-1)).each do |p|
-    print "#{p+1}: "
+    if p < 9
+      print "#{p+1}:  "
+    else
+      print "#{p+1}: "
+    end
     (possible_rolls[p]).times do
       print "#"
     end

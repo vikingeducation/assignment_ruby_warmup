@@ -113,13 +113,51 @@ def stock_picker(stock_prices)
   				best_days[0] = buy_date
   				best_days[1] = sell_date
   			end
-
   		end
   	end 
 
 		print best_days
-
 	end
 
 
-stock_picker([44, 30, 24, 32, 35, 30, 40, 38, 15]) 
+# stock_picker([44, 30, 24, 32, 35, 30, 40, 38, 15]) 
+
+
+# ____________________________________________________
+# ******************Anagrams**********************
+# ----------------------------------------------------
+
+def anagrams(original_word)
+
+	# Make sure the given input is formatted correctly
+	formatted_word= original_word.downcase.strip
+
+	# Sort the letters so it can be compared accurately
+	test_word = formatted_word.split("").sort.join
+
+	# Create an array to hold anagrams as they appear
+	anagram_array=[]
+
+
+	File.open("enable.txt").readlines.each do |imported_word|  
+		imported_word = imported_word.strip
+
+		if imported_word != formatted_word
+
+			if imported_word.split("").sort.join == test_word
+				anagram_array << imported_word
+			end
+
+		end
+
+	end
+
+	print anagram_array
+end
+
+
+anagrams("Pears ")
+
+
+
+

@@ -25,3 +25,16 @@ def dice_outcomes(num_dice, num_rolls)
   
   result
 end
+
+def fib(number)
+  return 1 if number == 1 || number == 2
+
+  return fib(number - 1) + fib(number - 2)
+end
+
+def fibonacci(num_members)
+  result = []
+  1.upto(num_members) { |member| result << fib(member) }
+
+  result
+end

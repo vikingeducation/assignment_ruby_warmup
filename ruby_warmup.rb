@@ -58,3 +58,29 @@ def stock_picker(stock_prices)
 
   [best_buying_day, best_selling_day]
 end
+
+def anagrams(string)
+  output = []
+  filename = "enable.txt"
+  letters_in_string = string.split("").sort
+
+  File.open(filename, "r") do |file|
+    file.each_line do |word|
+      word = word.strip
+      letters_in_word = word.split("").sort
+
+      # skip comparison if lengths are not equal
+      next unless letters_in_word.length == letters_in_string.length
+
+      # a word is not an anagram of itself
+      next if word == string
+
+      if letters_in_word == letters_in_string
+        output << word
+      end
+
+    end
+  end
+
+  output
+end

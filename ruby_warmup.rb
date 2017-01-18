@@ -38,3 +38,23 @@ def fibonacci(num_members)
 
   result
 end
+
+def stock_picker(stock_prices)
+  best_buying_day = 0
+  best_selling_day = 0
+  best_profit = 0
+  last_selling_day = stock_prices.length - 1
+
+  stock_prices.each_with_index do |price_on_day, buying_day|
+    first_selling_day = buying_day + 1
+    first_selling_day.upto(last_selling_day) do |sell_day|
+      if stock_prices[sell_day] - price_on_day >= best_profit
+        best_buying_day = buying_day
+        best_selling_day = sell_day
+        best_profit = stock_prices[sell_day] - price_on_day
+      end
+    end
+  end
+
+  [best_buying_day, best_selling_day]
+end

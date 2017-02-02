@@ -52,3 +52,29 @@ def fibonacci(num)
   fibonacci_numbers = fibonacci_numbers.join(', ')
   puts fibonacci_numbers
 end
+
+def stock_picker(daily_prices)
+  best_trade = { "buy_day" => 0, "sell_day" => 0, "profit" => 0 }
+
+  daily_prices.each_with_index do |daily_price, buy_day|
+    sell_day = buy_day
+
+    while sell_day < daily_prices.length do
+      profit = daily_prices[sell_day] - daily_prices[buy_day]
+
+      if profit > best_trade["profit"]
+        best_trade["profit"] = profit
+        best_trade["buy_day"] = buy_day
+        best_trade["sell_day"] = sell_day
+      end
+
+      sell_day += 1
+    end
+  end
+
+  puts "Buy: Day #{best_trade["buy_day"]}"
+  puts "Sell: Day #{best_trade["sell_day"]}"
+  puts "Profit: #{best_trade["profit"]}"
+
+  return best_trade
+end

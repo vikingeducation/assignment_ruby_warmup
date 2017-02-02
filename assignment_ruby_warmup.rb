@@ -31,3 +31,24 @@ def dice_outcomes(dice_number, rolls)
 
   return roll_outcomes
 end
+
+def fibonacci_number(num)
+  if num == 1 || num == 2
+    return 1
+  end
+
+  return (fibonacci_number(num - 1) + fibonacci_number(num - 2))
+end
+
+def fibonacci(num)
+  fibonacci_numbers = []
+
+  i = 1
+  while i <= num
+    fibonacci_numbers.push(fibonacci_number(i))
+    i += 1
+  end
+
+  fibonacci_numbers = fibonacci_numbers.join(', ')
+  puts fibonacci_numbers
+end

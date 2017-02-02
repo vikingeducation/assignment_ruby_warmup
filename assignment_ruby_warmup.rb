@@ -54,7 +54,7 @@ def fibonacci(num)
 end
 
 def stock_picker(daily_prices)
-  best_trade = { "buy_day" => 0, "sell_day" => 0, "profit" => 0 }
+  best_trade = {"buy_day" => 0, "sell_day" => 0, "profit" => 0}
 
   daily_prices.each_with_index do |daily_price, buy_day|
     sell_day = buy_day
@@ -77,4 +77,26 @@ def stock_picker(daily_prices)
   puts "Profit: #{best_trade["profit"]}"
 
   return best_trade
+end
+
+def anagrams(test_word)
+  test_word = test_word.downcase
+  anagram_list = []
+
+  words_dict = File.new("enable.txt", "r")
+  words_arr = words_dict.readlines.map(&:chomp)
+
+  words_arr.each do |word|
+    anagram = true
+    anagram = false if word.length != test_word.length || word == test_word
+
+    word.each_char do |c|
+      anagram = false if test_word.count(c) != word.count(c)
+    end
+
+    anagram_list.push word if anagram
+  end
+
+  puts anagram_list
+  words_dict.close
 end

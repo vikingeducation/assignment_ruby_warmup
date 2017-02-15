@@ -25,7 +25,7 @@ def dice_outcomes(dice, total_rolls)
 	end
 
 end
-dice_outcomes(3, 10)
+
 
 def fibonacci(n)
 	results = []
@@ -41,9 +41,31 @@ def fibonacci(n)
 end
 
 def stock_picker(stocks)
-
+	profit_array = []
+	#new empty array for stock prices
+	stocks_array = []
+	#sets profit to 0
+	profit = 0
+	#puts original array into a multidimensional array
+	stocks_array = stocks.combination(2).to_a
+	#iterates over each array
+	stocks_array.each do |x|
+		#iterates over each element with index
+		x.each_cons(2) do |a,b|
+			#finds the difference between the two prices
+			difference = a - b 
+			#if difference is greater than profit assign 
+			#difference to profit variable then
+			#push a, b into profit array
+			if difference > profit
+				profit = difference
+				profit_array.push(a,b)
+			end
+		end
+	end
+				#print best buy and sell
+				print profit_array[-2..-1]
 end
-
 
 def anagrams(word)
 	#splits string into array and sorts it alpabetically
@@ -60,11 +82,9 @@ def anagrams(word)
 			#pushes word into array
 		 	anagrams_array.push(line)
 		 end 
-	end
-		
-
+	end		
 end
-anagrams("pear")
+
 
 
 

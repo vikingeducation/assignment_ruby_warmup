@@ -5,4 +5,4 @@ Dice, dice, baby.
 
 [A Ruby assignment from the Viking Codes School](http://www.vikingcodeschool.com)
 
-Edwin Padron (https://github.com/edwinpadron)
+by: Edwin Padron

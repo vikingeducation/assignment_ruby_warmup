@@ -87,3 +87,22 @@ end
 
 
 
+def anagrams(word)
+
+    # This is an array of all possible permutations of the word
+    permutations = word.split("").permutation.map(&:join).uniq.sort
+    # This reads all the lines/words from the enable.txt file dictionary
+    dict_arr = File.readlines("enable.txt")
+    # This will contain all permutations of the word that is actually a word in the dictionary
+    result = []
+    permutations.each do |item|
+        if dict_arr.include?(item + "\n") # Each item in the permutations array has "\n" tacked on
+            result << item
+        end
+    end
+    print result
+    puts
+
+end
+
+# anagrams("pears")

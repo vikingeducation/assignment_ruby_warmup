@@ -50,19 +50,17 @@ def fibbonacci(members, series = [1,2])
 end
 
 (0..7).to_a.each do |i|
-  print "f\n"
+  print "fibbonacci test #{i}\n"
   print fibbonacci(i)
 end
 
 
 def stock_picker(stock_prices)
-  print "sp"
   maximum_benefit = -99999
   best_buy_day = 0
   best_sell_day = 0
   last_item_index = stock_prices.length - 2
   buy_day = 0
-
   while buy_day < last_item_index # can't sell after last day
     sell_day = buy_day + 1
     while sell_day < stock_prices.length - 1
@@ -74,10 +72,54 @@ def stock_picker(stock_prices)
       end
       sell_day += 1
     end
-    print buy_day
     buy_day += 1
   end
   return [best_buy_day, best_sell_day, maximum_benefit]
 end
 
 print stock_picker [44, 30, 24, 32, 35, 30, 40, 38, 15]
+
+def load_words_list(filename="dictionary.txt")
+  # load dictionary, strip new lines, etc
+  dictionary = File.readlines("dictionary.txt")
+  dictionary.map! { |element| element.strip  }
+  return dictionary
+end
+
+
+def is_a_an_anagram_of_b(a,b)
+  if a == b
+    return false
+  else
+    a.each_char do |chr|
+      if a.count(chr) != b.count(chr)
+        return false
+      end
+    end
+    b.each_char do |chr|
+      if a.count(chr) != b.count(chr)
+        return false
+      end
+    end
+  end
+  return true
+end
+
+
+def anagrams(source_word)
+  words_list = load_words_list
+  anagrams_list = []
+  words_list.each do |this_word|
+    if is_a_an_anagram_of_b(source_word,this_word)
+      anagrams_list << this_word
+    end
+  end
+  return anagrams_list
+end
+
+print "\n pears anagrams"
+print anagrams("pears")
+print "\n words anagrams"
+print anagrams("words")
+print "\n republic anagrams"
+print anagrams("republic")

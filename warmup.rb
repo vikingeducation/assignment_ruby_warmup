@@ -116,7 +116,7 @@ def stock_picker(prices_array)
 end
 
 puts stock_picker([44, 30, 24, 32, 35, 30, 40, 38, 15]) 
-
+puts "\n"
 
 =begin
 Anagram Testing
@@ -149,3 +149,35 @@ When you're finished with all tasks, push your changes up to your fork (aka $ gi
 To submit your assignment, create a pull request from your fork to the main upstream repository.
 	
 =end
+
+p "Assignment 5"
+
+def anagrams(input)			
+	solution = []
+	input_array = input.split("")
+	length = input_array.length
+	possible_anagrams = []
+	possible_anagrams_array = input_array.permutation.to_a 	#makes array of permutaions in characters
+	#makes permutaions into strings
+	possible_anagrams_array.each do |sub_array|							
+		x = sub_array.join("")
+		possible_anagrams << x																							#creates array of permutations strings
+	end	
+	#compares possible anagrams to words in enable.txt
+	possible_anagrams.each do |anagram|
+		anagram = anagram + "\n"
+		File.open("enable.txt", "r") do |file|		#iterates through file for match
+			file.readlines.each do |word|			
+				if anagram == word
+					anagram =anagram.chop								#removes the line escape characters
+					solution << anagram
+				end
+			end
+		end
+	end
+	solution.delete(input)
+	print solution
+end	
+
+
+puts anagrams("pears")

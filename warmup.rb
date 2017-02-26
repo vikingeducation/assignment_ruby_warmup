@@ -73,8 +73,8 @@ def fibonacci(nums)
 	print fibonacci_numbers
 end
 
-puts fibonacci(7)
-
+puts fibonacci(10)
+puts "\n"
 =begin
 	
 Stock Picker
@@ -88,12 +88,34 @@ for example:
 #=> [2, 6]
 
 =end
+p "Assignment 4"
+def stock_picker(prices_array)
+	first_array = prices_array.dup		#for getting the first number in solution
+	second_array = prices_array.dup		#for getting the second number in solution
+	highest_diff = 100000
+	first_num = "" 								#first number in solution
+	second_num = "" 							#second number in solution
+	until first_array.empty? do
+		x = first_array.shift 			#takes the first number in array out		
+		first_array.each do |z| 		#subtracts remaining numbers from the first number			
+			diff = x - z
+			if diff < highest_diff
+				first_num = x						#gets the first number by taking the biggest difference
+				highest_diff = diff
+			end					
+		end		
+	end
+	
+	#puts second_array.index(first_num)
+	first_location = second_array.index(first_num)						#gets location of first number
+	remaining_array = second_array.shift(first_location + 1)  #removes all numbers from first to beginning of array
+	second_num = second_array.max 														#gets secnd number
+	second_location = prices_array.index(second_num)					#gets location of second number
+	solution = [first_location, second_location]
+	
+end
 
-
-
-
-
-
+puts stock_picker([44, 30, 24, 32, 35, 30, 40, 38, 15]) 
 
 
 =begin

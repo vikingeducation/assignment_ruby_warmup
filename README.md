@@ -1,5 +1,6 @@
 assignment_ruby_warmup
 ======================
+Nawar Yossef
 
 Dice, dice, baby.
 

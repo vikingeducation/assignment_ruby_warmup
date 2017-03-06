@@ -17,13 +17,22 @@ end
 
 def dice_outcomes(no_of_dice, dice_rolls)
 	outcomes = {}
+
+	(no_of_dice..no_of_dice*6).each do |i|
+    outcomes[i] = 0
+  end
+
 	dice_rolls.times do
-		sum = roll_dice(no_of_dice)
-		puts outcomes[sum]
-		outcomes[sum] << "#"
+		outcomes[roll_dice(no_of_dice)] += 1
+	end
+
+	outcomes.keys.each do |value| 
+		print "#{value}:".ljust(4) + "#{"#"*outcomes[value]} \n"
 	end
 	outcomes
 end
+
+dice_outcomes(2, 700)
 
 # =========
 # Fibonacci

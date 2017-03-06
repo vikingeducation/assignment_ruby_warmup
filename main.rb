@@ -36,7 +36,7 @@ def fibonacci(n)
 		fibo_nums << fibo_nums[-2] + fibo_nums[-1]
 	end
 
-	puts fibo_nums
+	fibo_nums
 end
 
 # ============
@@ -47,27 +47,42 @@ end
 
 def stock_picker(stock_prices)
 	largest_price_diff = 0
-	best_buying_day, best_selling_day = 0
+	best_days = []
 	
 	stock_prices.each_with_index do |buying_price, buying_price_index|
-		prices_left = stock_prices.length - (buying_price_index + 1)
+		prices_left_to_check = stock_prices.length - (buying_price_index + 1)
 	
-		prices_left.times do |i|
+		prices_left_to_check.times do |i|
 			selling_price = stock_prices[buying_price_index + i + 1]
 			price_diff = selling_price - buying_price
 			
 			if price_diff > largest_price_diff
 				largest_price_diff = price_diff
-				best_buying_day = buying_price_index
-				best_selling_day = buying_price_index + i + 1
+				best_days[0] = buying_price_index
+				best_days[1] = buying_price_index + i + 1
 			end
 		end
 	end
-	puts "[#{best_buying_day}, #{best_selling_day}]"
-end
 
-stock_picker([44, 30, 24, 32, 35, 30, 40, 38, 15])
+	best_days
+end
 
 # ===============
 # Anagram Testing
 # ===============
+
+def anagrams(input)
+  anagrams = []
+  input = input.downcase
+  possible_words = File.read("enable.txt").split(/\n/)
+
+  possible_words.each do |word|
+    if (word.chars.sort.join == input.chars.sort.join) && (word != input)
+    	anagrams << word.upcase
+    end
+  end  
+
+  anagrams
+end
+
+anagrams("pears")

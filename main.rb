@@ -6,8 +6,8 @@ def roll_dice(dice_rolls = 1)
   result = 0
   dice_rolls.times do 
     result += rand(1..6)
-	end
-	return result
+  end
+  result
 end
 
 # =====================
@@ -22,7 +22,7 @@ def dice_outcomes(no_of_dice, dice_rolls)
 		puts outcomes[sum]
 		outcomes[sum] << "#"
 	end
-	puts outcomes
+	outcomes
 end
 
 # =========

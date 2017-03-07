@@ -17,14 +17,18 @@ def dice_outcomes(number_die = 1, numbers_rolls = 1)
     outcomes[result] += 1
   end
 
-  outcomes.sort.map do |key, value|
-    print '%3s' % key.to_s << ' : '
+  output_outcome(outcomes)
+  outcomes
+end
+
+def output_outcome(input_hash)
+  input_hash.sort.map do |key, value|
+    print key.to_s.rjust(4) << ' : '
     value.times do
       print '#'
     end
     puts ''
   end
-  outcomes
 end
 
 # testing calls

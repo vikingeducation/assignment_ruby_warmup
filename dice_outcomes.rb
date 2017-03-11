@@ -15,7 +15,7 @@ def dice_outcomes(number_of_dice, roll_times)
       end
       results_of_roll.delete_at(0)
     end
-    print products
+    products.each {|key,value| print "#{key}: #{value}\n"}
 end
 
 

@@ -3,7 +3,7 @@ def anagrams(word,anagrams_array)
   new_word = word.upcase.split("")
   print new_word
   anagrams_array.each do |w|
-    if w.split("") & new_word == w.split("")
+    if w.upcase.split("") & new_word == w.split("")
       answer_array << w
     end
   end

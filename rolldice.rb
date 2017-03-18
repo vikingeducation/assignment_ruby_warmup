@@ -35,4 +35,48 @@ def roll_dice_2(times, amt)
     print obj
 end
 
-roll_dice_2(3, 3)
+def fibonacci(nth)
+	startingNum = 1
+	(1..nth).each do
+		startingNum += startingNum
+	end
+	puts startingNum
+end
+
+myarr = [2,8,3,7,4,6,5,1,10]
+
+def stock_picker(array)
+    select_index = array[0]
+    greatDifference = 0
+    arrOfIndexes = []
+    indexes = ''
+    
+    array.each do |z|
+        select_index = z
+        array.each do |x|
+            if x - select_index > greatDifference
+                greatDifference = x - select_index
+                indexes = "#{x}, #{select_index}"
+            end
+        end
+    end
+    puts indexes
+end
+
+def anagrams(word, dictionary)
+    correct_words = []
+
+    dictionary.each do |x|
+        myword = x
+        if word.length == x.length
+            
+            original_word = word.split("").sort().join("").downcase
+            myword = myword.split("").sort().join("").downcase
+            
+            if original_word == myword
+                correct_words.push(x)
+            end
+        end
+    end
+    return correct_words
+end

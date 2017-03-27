@@ -69,4 +69,15 @@ def stock_picker(prices=[])
 end
 
 
+def anagrams(string)
+  dict = File.read("enable.txt")
+  result = []
+
+  perms = string.chars.to_a.permutation.map(&:join).uniq
+  perms.each { |word| result << word if dict.include? "#{word}\n" }
+
+  return result
+end
+
+
 binding.pry

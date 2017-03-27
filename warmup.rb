@@ -1,6 +1,3 @@
-require 'pry'
-
-
 def roll_dice(number_of_dice=1)
   faces = [1,2,3,4,5,6]
   total = 0
@@ -78,6 +75,3 @@ def anagrams(string)
 
   return result
 end
-
-
-binding.pry

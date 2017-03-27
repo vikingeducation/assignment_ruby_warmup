@@ -43,4 +43,30 @@ def fibonacci(number)
 end
 
 
+def stock_picker(prices=[])
+  buy_sell_days = []
+  buy_stock = nil
+  sell_stock = nil
+
+  difference = prices[1] - prices[0]
+
+  prices.each_with_index do |buy_price, buy_day|
+    prices.each_with_index do |sell_price, sell_day|
+      if sell_day > buy_day
+        if sell_price - buy_price > difference
+          difference = sell_price - buy_price
+          buy_stock = buy_day
+          sell_stock = sell_day
+        end
+      end
+    end
+  end
+
+  buy_sell_days[0] = buy_stock
+  buy_sell_days[1] = sell_stock
+
+  return buy_sell_days
+end
+
+
 binding.pry

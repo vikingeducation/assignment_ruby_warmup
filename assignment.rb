@@ -203,7 +203,7 @@ def anagrams (fileName, word )
   puts valid_anagrams
   puts "There are #{valid_anagrams.size} anagrams of #{word} in the Scrabble dictionary"
   puts "is #{word} in the dictionary ? ===> #{dictionary[word]}"
-
+  return valid_anagrams
   file.close
 end
 

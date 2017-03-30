@@ -24,3 +24,17 @@ def dice_outcomes(number_of_dice, number_of_rolls)
     puts "#{roll.to_s.ljust(2)}:  " + "#"*tally
   end
 end
+
+def fibonacci(number_of_terms)
+  sequence = []
+  (1..number_of_terms).each do |i|
+    if sequence.length == 0
+      sequence[0] = 1
+    elsif sequence.length == 1
+      sequence[1] = 1
+    else
+      sequence[i-1] = sequence[i-2] + sequence[i-3]
+    end
+  end
+  return sequence
+end

@@ -38,3 +38,19 @@ def fibonacci(number_of_terms)
   end
   return sequence
 end
+
+def stock_picker(prices)
+  best_profit = {profit: 0, buy: 1, sell: 1}
+
+  prices.each_with_index do |buy_price, buy_day|
+    (buy_day+1...prices.length).each do |sell_day|
+      difference = prices[sell_day] - buy_price
+      if difference > best_profit[:profit]
+        best_profit[:profit] = difference
+        best_profit[:buy] = buy_day
+        best_profit[:sell] = sell_day
+      end
+    end
+  end
+  return[best_profit[:buy],best_profit[:sell]]
+end

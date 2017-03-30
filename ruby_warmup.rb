@@ -54,3 +54,17 @@ def stock_picker(prices)
   end
   return[best_profit[:buy],best_profit[:sell]]
 end
+
+def anagrams(word)
+  sorted_dictionary = Hash.new{Array.new}
+
+  #load dictionary into a hash, sorted by alphabetical array of characters
+  File.open("enable.txt").readlines.each do |line|
+    sorted_dictionary[line.chomp.chars.sort.join] = sorted_dictionary[line.chomp.chars.sort.join] += [line.chomp]
+  end
+
+  #lookup array for input word, remove it, and return
+  anagrams = sorted_dictionary[word.downcase.chars.sort.join]
+  anagrams.delete(word)
+  return anagrams
+end

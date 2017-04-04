@@ -1,4 +1,4 @@
-assignment_ruby_warmup
+Andrew Roache
 ======================
 
 Dice, dice, baby.

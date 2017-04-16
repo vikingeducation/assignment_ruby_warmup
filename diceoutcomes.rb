@@ -19,8 +19,11 @@ def dice_outcomes(num_dice, num_times)
     result[roll] += 1
   end
   (num_dice * 6).times do |index|
+    visual = []
     puts result[index + 1] 
+    visual << "#"
     #visual output
+      puts count_string
   end
 end
 

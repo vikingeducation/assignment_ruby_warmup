@@ -15,10 +15,3 @@ def fibonacci(number_stop)
 end
 
 puts fibonacci(1)
-
-
-#should be array and until loop?  
-#Loop to add the numbers until you reach the 
-#number argument?
-#How to set up array so that numbers 
-#are pushed onto the end of it?

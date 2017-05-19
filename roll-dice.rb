@@ -1,13 +1,10 @@
-class Die
-  def roll_dice
-    rand(6) + 1
+def roll_dice(n)
+  sum = 0
+  n.times do |roll|
+    roll = 4
+    sum += roll
   end
+  sum
 end
 
-dice = [Die.new, Die.new, Die.new]
-
-dice.each do |dice|
-  puts dice.roll_dice
-end
-
-
+puts roll_dice(5)

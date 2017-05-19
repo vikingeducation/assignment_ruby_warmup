@@ -1,5 +1,12 @@
-def roll_dice(sides)
-  rand(sides) + 1
+class Die
+  def roll
+    rand(6) + 1
+  end
 end
 
-puts roll_dice(12)
+dice = [Die.new, Die.new]
+
+dice.each do |die|
+  puts die.roll
+end
+

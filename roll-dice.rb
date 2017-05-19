@@ -1,12 +1,13 @@
 class Die
-  def roll
+  def roll_dice
     rand(6) + 1
   end
 end
 
-dice = [Die.new, Die.new]
+dice = [Die.new, Die.new, Die.new]
 
-dice.each do |die|
-  puts die.roll
+dice.each do |dice|
+  puts dice.roll_dice
 end
+
 

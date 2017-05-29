@@ -1,10 +1,10 @@
-def roll_dice(n)
+def roll_dice(n = 1)
   sum = 0
-  n.times do |roll|
-    roll = 4
-    sum += roll
+  n.times do
+  	sum += 1 + rand(6)
   end
   sum
 end
 
-puts roll_dice(5)
+p roll_dice(5)
+

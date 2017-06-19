@@ -37,4 +37,3 @@ def dice_outcomes(number_of_dice, number_of_rolls)
   end
   print (results)
 end
-dice_outcomes(3, 400)

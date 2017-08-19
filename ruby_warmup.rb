@@ -14,3 +14,11 @@ def dice_outcomes(dice_number, iteration)
   hash_chart.each {|key, value| puts "#{key}:  "  +  "#"*value}
   hash_chart.to_h
 end
+
+def fibonacci(order)
+  fibo = [1,1]
+  while fibo.length < order
+    fibo << fibo[-1]  + ( fibo[-2] == nil ? 1 : fibo[-2])
+  end
+  fibo
+end

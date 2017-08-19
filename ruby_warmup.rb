@@ -22,3 +22,17 @@ def fibonacci(order)
   end
   fibo
 end
+
+def stock_picker(ary)
+  picker = []
+  max  = 0
+  (ary.length-1).times do |i|
+    (i+1..ary.length-1).each do |j|
+      if ary[j] - ary[i] > max
+        picker = [i, j]
+        max = ary[j] - ary[i]
+      end
+    end
+  end
+  picker
+end

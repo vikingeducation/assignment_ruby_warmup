@@ -36,3 +36,18 @@ def stock_picker(ary)
   end
   picker
 end
+
+def anagrams(word_search)
+  word_match = Array.new()
+  fo = File.open("./enable.txt", "r")
+  words = fo.readlines
+  fo.close
+  word_search.downcase!
+  words.each do |word|
+    word.chomp!
+    if (word != word_search) && (word.length == word_search.length)
+      word_match << word.upcase if word_search.split("").sort == word.split("").sort
+    end
+  end
+  word_match
+end

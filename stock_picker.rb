@@ -3,12 +3,16 @@
 def stock_picker(stock_prices)
   possible_pairs = []
   profit_amounts = []
+
   stock_prices.each_with_index do |price, index|
-    buy = price
+    buy_day = index
     remaining_prices = stock_prices[(index + 1)..-1]
+
     sell = remaining_prices.max
-    profit = sell - buy if sell != nil
-    possible_pairs << {buy: buy, sell: sell, profit: profit}
+    sell_day = stock_prices.index(remaining_prices.max)
+
+    profit = sell - price if sell != nil
+    possible_pairs << {buy_day: buy_day, sell_day: sell_day, profit: profit}
     profit_amounts << profit
   end
 
@@ -18,8 +22,8 @@ def stock_picker(stock_prices)
   end
 
   result = []
-  result << best_pair[0][:buy]
-  result << best_pair[0][:sell]
+  result << best_pair[0][:buy_day]
+  result << best_pair[0][:sell_day]
 
   p result
 

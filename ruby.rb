@@ -50,4 +50,20 @@ def fibonacci(num)
   return array
 end
 
-p fibonacci(4)
+#p fibonacci(4)
+
+def stock_picker(array)
+  best = [0,0]
+  profit = 0
+  array.each_index do |i|
+    (i+1).upto(array.count - 1) do |i2|
+      if array[i2] - array[i] > profit
+        profit = array[i2] - array[i]
+        best = [i, i2]
+      end
+    end
+  end
+  return best
+end
+
+p stock_picker([44, 30, 24, 32, 35, 30, 40, 38, 15])

@@ -30,4 +30,24 @@ def dice_outcomes(dice_num, roll_times)
   end
 end
 
-dice_outcomes(3, 100)
+#dice_outcomes(3, 100)
+
+def fibonacci(num)
+  if num <= 1
+    return "error you need a number greater or equal to 1 for this to work!"
+  end
+
+  if num == 1
+    return [1]
+  end
+
+  array = [1,1]
+  i = 3
+  while i <= num do
+    array << array.last(2).reduce(:+)
+    i += 1
+  end
+  return array
+end
+
+p fibonacci(4)

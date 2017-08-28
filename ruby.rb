@@ -66,4 +66,25 @@ def stock_picker(array)
   return best
 end
 
-p stock_picker([44, 30, 24, 32, 35, 30, 40, 38, 15])
+#p stock_picker([44, 30, 24, 32, 35, 30, 40, 38, 15])
+
+def anagrams(word)
+  word_arr = word.split("")
+  anagrams = []
+  array = File.readlines('enable.txt')
+  array.each do |str|
+    question = "true"
+    str = str.sub("\n", "")
+    str_arr = str.split("")
+    p str_arr
+    str_arr.each do |let|
+      question = "false" if str_arr.count(let) != word_arr.count(let)
+    end
+    anagrams << str if question == "true" && str_arr.count == word_arr.count && str_arr != word_arr
+  end
+  return anagrams
+end
+
+#p anagrams("zygote")
+
+#p array

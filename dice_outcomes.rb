@@ -23,7 +23,7 @@ def dice_outcomes(qty_dice = 1, rolls = 1)
   end
 
   roll_outcomes.sort.to_h.each do |key, value|
-    puts "#{key}: #{value}"
+    puts "#{key}: #{value} (#{value.length})"
   end
 end
 

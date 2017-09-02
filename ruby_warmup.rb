@@ -7,6 +7,7 @@ def roll_dice(number_of_dice = 1)
   roll_total = die_rolls.reduce(:+)
 end 
 
+
 def dice_outcomes(number_of_dice = 1, number_of_rolls = 1)
   die = [1, 2, 3, 4, 5, 6]
   roll_totals = []
@@ -22,6 +23,7 @@ def dice_outcomes(number_of_dice = 1, number_of_rolls = 1)
   end
 end 
 
+
 def fibonacci(num_in_sequence)
   fibnums = [1, 1]
   1.upto(num_in_sequence - 2) do |num|
@@ -29,6 +31,7 @@ def fibonacci(num_in_sequence)
   end 
   fibnums.last
 end
+
 
 def stock_picker(prices)
   beg_index = 0

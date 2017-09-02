@@ -50,3 +50,30 @@ def stock_picker(prices)
   [low_index, high_index]
     
 end
+
+
+#Kind of a weird solution, but it seems to work.
+def anagrams(word)
+  file = File.open("enable.txt", 'r')
+  dictionary = file.readlines
+  file.close
+
+  same_length = []
+  anagrams = []
+
+  dictionary.each do |entry|
+    if entry.length == word.length + 1
+      same_length << entry
+    end 
+  end
+
+  same_length.each do |entry|
+   if word.chars.all? { |char| entry[0..(entry.length - 2)].count(char) == word.count(char) } && 
+    entry[(0..entry.length - 2)] != word
+     
+     anagrams << entry[0..(entry.length - 2)]
+
+   end 
+  end 
+  anagrams
+end

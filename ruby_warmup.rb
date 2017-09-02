@@ -21,3 +21,11 @@ def dice_outcomes(number_of_dice = 1, number_of_rolls = 1)
     puts "#{num}" + ': ' + "#" * roll_totals.count(num)
   end
 end 
+
+def fibonacci(num_in_sequence)
+  fibnums = [1, 1]
+  1.upto(num_in_sequence - 2) do |num|
+    fibnums << fibnums[num] + fibnums[num - 1]
+  end 
+  fibnums.last
+end

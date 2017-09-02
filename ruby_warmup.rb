@@ -29,3 +29,24 @@ def fibonacci(num_in_sequence)
   end 
   fibnums.last
 end
+
+def stock_picker(prices)
+  beg_index = 0
+  low_index = 0 
+  high_index = 0
+  largest_difference = 0
+  
+  while beg_index < prices.length
+    beg_index.upto(prices.length - 2) do |index|
+      if prices[index] - prices[beg_index] > largest_difference
+        largest_difference = prices[index] - prices[beg_index]
+        low_index = beg_index
+        high_index = index 
+      end 
+    end 
+    beg_index += 1 
+  end 
+  
+  [low_index, high_index]
+    
+end

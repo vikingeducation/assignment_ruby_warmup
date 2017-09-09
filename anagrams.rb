@@ -3,7 +3,7 @@ def local_anagrams(input)
   matches = []
 
   IO.foreach('enable.txt') do |word|
-    word = word.sub("\n", "")
+    word.strip!
     processed_word = word.downcase.chars.sort.join
     matches << word if (processed_word == processed_input) && (word != input)
   end
@@ -31,7 +31,7 @@ def cloud_anagrams(input)
   matches = []
 
   web_dictionary.each do |word|
-    word = word.sub("\n", "")
+    word.strip!
     processed_word = word.downcase.chars.sort.join
     matches << word if (processed_word == processed_input) && (word != input)
   end

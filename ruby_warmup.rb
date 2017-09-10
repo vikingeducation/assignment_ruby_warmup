@@ -55,9 +55,8 @@ def stock_picker(prices)
 end
 
 
-#Kind of a weird solution, but it seems to work.
 def anagrams(word)
-  file = File.open("enable.txt", 'r')
+  file = File.open("assignment_ruby_warmup/enable.txt", 'r')
   dictionary = file.readlines
   file.close
 
@@ -65,18 +64,13 @@ def anagrams(word)
   anagrams = []
 
   dictionary.each do |entry|
-    if entry.length == word.length + 1
+    if entry.chomp.length == word.length
       same_length << entry
     end 
   end
 
   same_length.each do |entry|
-   if word.chars.all? { |char| entry[0..(entry.length - 2)].count(char) == word.count(char) } && 
-    entry[(0..entry.length - 2)] != word
-     
-     anagrams << entry[0..(entry.length - 2)]
-
-   end 
+    anagrams << entry.chomp if entry.chomp.chars.sort == word.chars.sort
   end 
   anagrams
 end

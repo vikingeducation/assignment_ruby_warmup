@@ -14,8 +14,16 @@ end
 #roll_dice(2)
 
 def dice_outcomes(dice, rolls)
-  # come back to this one
+  
+
+
+
+  # use a hash/array for the visual chart
 end
+
+#dice_outcomes(3, 100)
+#dice_outcomes(2, 1)
+#dice_outcomes(9, 4)
 
 def fibonacci(limit)
   first = 1
@@ -65,3 +73,7 @@ end
 #stock_picker([44, 30, 24, 32, 35, 30, 40, 38, 15])
 #stock_picker([500, 700, 300, 400, 200, 100, 600])
 #stock_picker([5, 4, 3, 2, 1])
+
+def anagrams(string)
+  # come back to this one
+end

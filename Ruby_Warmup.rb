@@ -13,6 +13,7 @@ end
 #roll_dice(4)
 #roll_dice(2)
 
+# implement each do when going through a pre-populated array
 def dice_outcomes(dice, rolls)
   tracker = 0
   outcomes = []
@@ -26,57 +27,46 @@ def dice_outcomes(dice, rolls)
     outcomes.push(outcome)
     tracker += 1
   end
-puts " The result was #{outcomes.to_s} "
+#puts " The result was #{outcomes.to_s} "
+    building = []
     chart = []
-    gauge = 0
-    while outcomes.length > gauge
-      index = outcomes[gauge]
-      if !chart.include?(index)
-        chart.push(index)
+    limit = 0
+    while outcomes.length > limit
+      if !building.include?(outcomes[limit])
+        building.push(outcomes[limit])
       end
-
-      if chart.include?(index)
-        if index != index.to_s
-          chart.select! { |index| index = "#{index.to_s}: " }
-        end
-        chart.select! { |index| index = "#{index}#" }
-      end
-
-      gauge += 1
+      limit += 1
     end
-puts "the chart looks like this #{chart}"
+    building.sort!
+    building.each do |del|
+      outcomes.delete_at(outcomes.index(del))
+    end
+    limit = 0
+      while limit < building.length
+        building.map { |x|
+          if(x != x.to_s)
+            x = x.to_s
+          end
+            if x != "#{x}: " && "" == x.gsub(/\d/, '')
+              chart.push(x = x + ": #")
+            end
+            limit += 1
+        }
+      end
+      limit = 0
+      while limit < outcomes.length
+        match = building.index(outcomes[limit])
+        mod = chart[match]
+        mod.replace(mod + "#")
+        limit += 1
+      end
+puts "the chart looks like this"
+puts chart
 end
-
-=begin
-#how output array should look
-puts array = [ "1: #",
-   "2: #####"]
-=end
-
-array = []
-limit = 0
-base = [4, 5, 6, 1, 4, 2, 3, 4]
-arr = []
-
-# loop through the values in base and if their unique push them into arr
-
-arr.sort!
-while limit < arr.length
-arr.map! { |x|
-  if(x != x.to_s)
-    x = x.to_s
-  end
-  if x != "#{x}: " && "" == x.gsub(/\d/, '')
-    array.push(x = x + ": ")
-  end
-  limit += 1
-}
-end
-puts "#{arr}, #{array}, #{base}"
 
 #dice_outcomes(3, 100)
-#dice_outcomes(2, 1)
-#dice_outcomes(9, 4)
+#dice_outcomes(2, 10)
+#dice_outcomes(9, 7)
 
 def fibonacci(limit)
   first = 1
@@ -96,6 +86,7 @@ end
 #fibonacci(4)
 #fibonacci(7)
 
+# implement each do when going through a pre-populated array
 def stock_picker(array)
   count = 0
   largest = 0

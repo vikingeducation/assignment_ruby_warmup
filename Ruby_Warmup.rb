@@ -50,7 +50,7 @@ dice_outcomes(3, 128)
 
 =end
 
-def dice_outcomes(dice, rolls)
+def dice_outcomes(dice = 1, rolls = 1)
 # I used an array method instead of a hash method as I found it easier to match the example output chart
   tracker = 0
   copies = []
@@ -92,7 +92,7 @@ def dice_outcomes(dice, rolls)
 end
 
 dice_outcomes(3, 100)
-dice_outcomes(2, 10)
+dice_outcomes
 dice_outcomes(9, 7)
 
 =begin

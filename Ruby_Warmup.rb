@@ -1,21 +1,37 @@
 
-#  Documents/Viking/Ruby/Ruby_Warmup
+=begin
+Write a method roll_dice which returns the result of rolling N 6-sided dice
+where N is the input to the method (the default should be 1).
+=end
 
 def roll_dice(n = 1)
   results = 0
-  while 0 < n
+  amount = n
+  while 0 < amount
     results += 1 + rand(6)
-    puts "The count of this dice roll is #{n.to_s} and the cumulative total result is #{results.to_s}"
-    n -= 1
+    amount -= 1
   end
+    if n == 1
+      puts "A die was rolled and is now showing #{results.to_s}"
+    else
+      puts "#{n.to_s} dice were rolled and are now showing a total of #{results.to_s}"
+    end
 end
 
 roll_dice(4)
 roll_dice(2)
+roll_dice
+
+=begin
+Now write a method dice_outcomes which takes the number of dice to roll and
+the number of times to roll them, then outputs a visual chart of how many
+times each possible number comes up.
+=end
 
 def dice_outcomes(dice, rolls)
   tracker = 0
   copies = []
+# first create an arry of all outcomes called copies
   while rolls > tracker
     growth = 0
     outcome = 0
@@ -29,15 +45,18 @@ def dice_outcomes(dice, rolls)
   unique = []
   chart = []
   limit = 0
+# now create an array of the unique values in the copies array called unique
     copies.each do |original|
       if !unique.include?(original)
         unique << original
       end
     end
     unique.sort!
+# delete the unique values from the copies array so only the duplicate values remain
       unique.each do |del|
         copies.delete_at(copies.index(del))
       end
+# format the values of the copies and unique arrays for display in the chart array
         unique.map { |formaty|
           chart << (formaty.to_s + ": #")
         }
@@ -52,6 +71,11 @@ end
 dice_outcomes(3, 100)
 dice_outcomes(2, 10)
 dice_outcomes(9, 7)
+
+=begin
+Write a method fibonacci which outputs the Fibonacci Sequence members out to
+the specified number of members.
+=end
 
 def fibonacci(limit)
   first = 1
@@ -71,20 +95,25 @@ end
 fibonacci(4)
 fibonacci(7)
 
+=begin
+Write a method stock_picker which takes an array of stock prices (prices on
+days 0, 1, ...) and outputs the most profitable pair of days on which to
+first buy the stock and then sell the stock.
+=end
+
 def stock_picker(array)
-  count = 0
-  largest = 0
-  step = 1
   result = 0
+  largest = 0
+# count is the value of the array to check against the arrays proceeding values, which are represented by step
+  count = 0
+  step = 1
   while count < array.length - 1
     while step < array.length
       result = array[step] - array[count]
-      if result > 0
-        if result > largest
-          largest = result
-            low = count
-              high = step
-        end
+      if result > largest && result > 0
+        largest = result
+          low = count
+            high = step
       end
       step += 1
     end
@@ -102,13 +131,21 @@ stock_picker([44, 30, 24, 32, 35, 30, 40, 38, 15])
 stock_picker([500, 700, 300, 400, 200, 100, 600])
 stock_picker([5, 4, 3, 2, 1])
 
+=begin
+Write a method anagrams which returns an array of anagrams that can be made
+with the specified string. Assume the input is only a single word
+(e.g. "loot" not "William Shakespeare").
+=end
+
 def anagrams(string)
+# enable.txt is a Scrabble dictionary provided/recommended by Viking Code School
   dictionary = File.readlines("enable.txt")
     stringy = string.strip.downcase
       testy = stringy.chars.sort.join
       anagrams = []
       dictionary.each do |word|
         wordy = word.strip.downcase
+# by SORTing the letters of the source string and the dictionary words you can easily match the results to find anagrams, the trick is to just keep an unSORTed version around for display later
           check = wordy.chars.sort.join
           if (testy == check)
             anagrams << wordy
@@ -116,9 +153,9 @@ def anagrams(string)
       end
         anagrams.delete_at(anagrams.index(stringy))
         if anagrams == []
-          puts "No anagrams were found for #{string}"
+          puts "No anagrams were found for #{stringy.upcase}"
         else
-          puts "The following anagrams were found for #{string}"
+          puts "The following anagrams were found for #{stringy.upcase}"
           puts "#{anagrams}"
         end
 end

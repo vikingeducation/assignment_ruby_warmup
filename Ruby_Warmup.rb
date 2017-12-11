@@ -36,10 +36,10 @@ def dice_outcomes(dice, rolls)
     end
     unique.sort!
       unique.each do |del|
-      copies.delete_at(copies.index(del))
+        copies.delete_at(copies.index(del))
       end
         unique.map { |formaty|
-            chart.push(formaty.to_s + ": #")
+          chart.push(formaty.to_s + ": #")
         }
           copies.each do |hashify|
             hashy = chart[unique.index(hashify)]
@@ -103,5 +103,19 @@ end
 #stock_picker([5, 4, 3, 2, 1])
 
 def anagrams(string)
-  # come back to this one
+  string = string.downcase.split(//)
+  permutations = string.permutation.to_a
+  options = []
+  index = 0
+  while index < permutations.length
+    options.push(permutations[index].join)
+    index += 1
+  end
+
+  # then check the string array's against the scrabble dictionary, if a match is found push the scrabble word into a new array, and at the end puts that new array
+
 end
+
+#anagrams("Pears")
+#anagrams("zygote")
+#anagrams("alErTs")

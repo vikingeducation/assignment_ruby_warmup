@@ -3,15 +3,15 @@
 
 def roll_dice(n = 1)
   results = 0
-    while n > 0
-      results += 1 + rand(6)
-      puts "roll count = #{n.to_s}, and results = #{results.to_s}"
-      n -= 1
-    end
+  while 0 < n
+    results += 1 + rand(6)
+    puts "The count of this dice roll is #{n.to_s} and the cumulative total result is #{results.to_s}"
+    n -= 1
+  end
 end
 
-#roll_dice(4)
-#roll_dice(2)
+roll_dice(4)
+roll_dice(2)
 
 def dice_outcomes(dice, rolls)
   tracker = 0
@@ -21,17 +21,17 @@ def dice_outcomes(dice, rolls)
     outcome = 0
     while dice > growth
       outcome += 1 + rand(6)
-      growth += 1
+        growth += 1
     end
-    copies.push(outcome)
+    copies << outcome
     tracker += 1
   end
-    unique = []
-    chart = []
-    limit = 0
+  unique = []
+  chart = []
+  limit = 0
     copies.each do |original|
       if !unique.include?(original)
-        unique.push(original)
+        unique << original
       end
     end
     unique.sort!
@@ -39,19 +39,19 @@ def dice_outcomes(dice, rolls)
         copies.delete_at(copies.index(del))
       end
         unique.map { |formaty|
-          chart.push(formaty.to_s + ": #")
+          chart << (formaty.to_s + ": #")
         }
           copies.each do |hashify|
             hashy = chart[unique.index(hashify)]
             hashy.replace(hashy + "#")
           end
-            puts "#{dice.to_s} dice were rolled #{rolls} times to produce the following results"
-            puts chart
+          puts "#{dice.to_s} dice were rolled #{rolls} times to produce the following results"
+          puts chart
 end
 
-#dice_outcomes(3, 100)
-#dice_outcomes(2, 10)
-#dice_outcomes(9, 7)
+dice_outcomes(3, 100)
+dice_outcomes(2, 10)
+dice_outcomes(9, 7)
 
 def fibonacci(limit)
   first = 1
@@ -59,17 +59,17 @@ def fibonacci(limit)
   sequence = []
   counter = 0
   while counter < limit
-    sequence.push(first)
-    increment = first + second
-    first = second
-    second = increment
-    counter += 1
+    sequence << first
+      increment = first + second
+        first = second
+          second = increment
+            counter += 1
   end
   puts "The numbers in the Fibonacci Sequence up to #{limit.to_s} are #{sequence}"
 end
 
-#fibonacci(4)
-#fibonacci(7)
+fibonacci(4)
+fibonacci(7)
 
 def stock_picker(array)
   count = 0
@@ -82,14 +82,14 @@ def stock_picker(array)
       if result > 0
         if result > largest
           largest = result
-          low = count
-          high = step
+            low = count
+              high = step
         end
       end
       step += 1
     end
     count += 1
-    step = count + 1
+      step = count + 1
   end
     if low == nil
       puts "There was never a good day to buy and sell the stock"
@@ -98,24 +98,31 @@ def stock_picker(array)
     end
 end
 
-#stock_picker([44, 30, 24, 32, 35, 30, 40, 38, 15])
-#stock_picker([500, 700, 300, 400, 200, 100, 600])
-#stock_picker([5, 4, 3, 2, 1])
+stock_picker([44, 30, 24, 32, 35, 30, 40, 38, 15])
+stock_picker([500, 700, 300, 400, 200, 100, 600])
+stock_picker([5, 4, 3, 2, 1])
 
 def anagrams(string)
-  string = string.downcase.split(//)
-  permutations = string.permutation.to_a
-  options = []
-  index = 0
-  while index < permutations.length
-    options.push(permutations[index].join)
-    index += 1
-  end
-
-  # then check the string array's against the scrabble dictionary, if a match is found push the scrabble word into a new array, and at the end puts that new array
-
+  dictionary = File.readlines("enable.txt")
+    stringy = string.strip.downcase
+      testy = stringy.chars.sort.join
+      anagrams = []
+      dictionary.each do |word|
+        wordy = word.strip.downcase
+          check = wordy.chars.sort.join
+          if (testy == check)
+            anagrams << wordy
+          end
+      end
+        anagrams.delete_at(anagrams.index(stringy))
+        if anagrams == []
+          puts "No anagrams were found for #{string}"
+        else
+          puts "The following anagrams were found for #{string}"
+          puts "#{anagrams}"
+        end
 end
 
-#anagrams("Pears")
-#anagrams("zygote")
-#anagrams("alErTs")
+anagrams("Pears")
+anagrams("zygote ")
+anagrams("alErTs")

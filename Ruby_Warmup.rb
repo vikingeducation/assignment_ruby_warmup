@@ -12,9 +12,9 @@ def roll_dice(n = 1)
     amount -= 1
   end
     if n == 1
-      puts "A die was rolled and is now showing #{results.to_s}"
+      puts "A die was rolled and is showing #{results.to_s}"
     else
-      puts "#{n.to_s} dice were rolled and are now showing a total of #{results.to_s}"
+      puts "#{n.to_s} dice were rolled and are showing a total of #{results.to_s}"
     end
 end
 
@@ -121,6 +121,7 @@ end
 
 fibonacci(4)
 fibonacci(7)
+fibonacci(1)
 
 =begin
 Write a method stock_picker which takes an array of stock prices (prices on

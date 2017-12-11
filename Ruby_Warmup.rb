@@ -15,7 +15,7 @@ end
 
 def dice_outcomes(dice, rolls)
   tracker = 0
-  duplicates = []
+  copies = []
   while rolls > tracker
     growth = 0
     outcome = 0
@@ -23,34 +23,29 @@ def dice_outcomes(dice, rolls)
       outcome += 1 + rand(6)
       growth += 1
     end
-    duplicates.push(outcome)
+    copies.push(outcome)
     tracker += 1
   end
-    originals = []
+    unique = []
     chart = []
     limit = 0
-    duplicates.each do |unique|
-      if !originals.include?(unique)
-        originals.push(unique)
+    copies.each do |original|
+      if !unique.include?(original)
+        unique.push(original)
       end
     end
-    originals.sort!
-      originals.each do |del|
-      duplicates.delete_at(duplicates.index(del))
+    unique.sort!
+      unique.each do |del|
+      copies.delete_at(copies.index(del))
       end
-        originals.map { |x|
-          if(x != x.to_s)
-            x = x.to_s
-          end
-            if x != "#{x}: " && "" == x.gsub(/\d/, '')
-              chart.push(x = x + ": #")
-            end
+        unique.map { |formaty|
+            chart.push(formaty.to_s + ": #")
         }
-          duplicates.each do |hashify|
-            hashy = chart[originals.index(hashify)]
+          copies.each do |hashify|
+            hashy = chart[unique.index(hashify)]
             hashy.replace(hashy + "#")
           end
-            puts "the chart looks like this"
+            puts "#{dice.to_s} dice were rolled #{rolls} times to produce the following results"
             puts chart
 end
 
@@ -76,7 +71,6 @@ end
 #fibonacci(4)
 #fibonacci(7)
 
-# implement each do when going through a pre-populated array
 def stock_picker(array)
   count = 0
   largest = 0

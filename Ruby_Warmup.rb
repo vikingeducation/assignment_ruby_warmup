@@ -26,9 +26,32 @@ roll_dice
 Now write a method dice_outcomes which takes the number of dice to roll and
 the number of times to roll them, then outputs a visual chart of how many
 times each possible number comes up.
+
+Example ~
+
+dice_outcomes(3, 128)
+
+3:  ##
+4:  #
+5:  #
+6:  ####
+7:  ###
+8:  #################
+9:  ###########
+10: #########
+11: ############
+12: ##########
+13: ##########
+14: #########
+15: ######
+16: ##
+17: ##
+18: #
+
 =end
 
 def dice_outcomes(dice, rolls)
+# I used an array method instead of a hash method as I found it easier to match the example output chart
   tracker = 0
   copies = []
 # first create an arry of all outcomes called copies
@@ -78,16 +101,20 @@ the specified number of members.
 =end
 
 def fibonacci(limit)
-  first = 1
-  second = 1
   sequence = []
-  counter = 0
-  while counter < limit
-    sequence << first
-      increment = first + second
-        first = second
-          second = increment
-            counter += 1
+  if limit == 0 || limit == 1
+    sequence << limit
+  else
+    first = 1
+    second = 1
+    counter = 0
+    while counter < limit
+      sequence << first
+        increment = first + second
+          first = second
+            second = increment
+              counter += 1
+    end
   end
   puts "The numbers in the Fibonacci Sequence up to #{limit.to_s} are #{sequence}"
 end
@@ -140,24 +167,26 @@ with the specified string. Assume the input is only a single word
 def anagrams(string)
 # enable.txt is a Scrabble dictionary provided/recommended by Viking Code School
   dictionary = File.readlines("enable.txt")
-    stringy = string.strip.downcase
-      testy = stringy.chars.sort.join
-      anagrams = []
-      dictionary.each do |word|
-        wordy = word.strip.downcase
-# by SORTing the letters of the source string and the dictionary words you can easily match the results to find anagrams, the trick is to just keep an unSORTed version around for display later
-          check = wordy.chars.sort.join
-          if (testy == check)
-            anagrams << wordy
-          end
-      end
-        anagrams.delete_at(anagrams.index(stringy))
-        if anagrams == []
-          puts "No anagrams were found for #{stringy.upcase}"
-        else
-          puts "The following anagrams were found for #{stringy.upcase}"
-          puts "#{anagrams}"
+  stringy = string.strip.downcase
+# by SORTing the letters of the source string and the dictionary words you can easily match the results to find anagrams
+  testy = stringy.chars.sort.join
+  anagrams = []
+    dictionary.each do |word|
+      word = word.strip
+      if word.length == stringy.length
+        check = word.chars.sort.join
+        if testy == check
+          anagrams << word
         end
+      end
+    end
+      if anagrams == []
+        puts "No anagrams were found for #{stringy.upcase}"
+      else
+        anagrams.delete_at(anagrams.index(stringy))
+        puts "The following anagrams were found for #{stringy.upcase}"
+        puts "#{anagrams}"
+      end
 end
 
 anagrams("Pears")

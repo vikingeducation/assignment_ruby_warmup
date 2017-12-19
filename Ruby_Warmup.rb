@@ -1,9 +1,8 @@
 
 =begin
-Write a method roll_dice which returns the result of rolling N 6-sided dice
-where N is the input to the method (the default should be 1).
+  Write a method roll_dice which returns the result of rolling N 6-sided dice
+  where N is the input to the method (the default should be 1).
 =end
-
 def roll_dice(n = 1)
   results = 0
   amount = n
@@ -23,12 +22,10 @@ roll_dice(2)
 roll_dice
 
 =begin
-Now write a method dice_outcomes which takes the number of dice to roll and
-the number of times to roll them, then outputs a visual chart of how many
-times each possible number comes up.
-
+  Now write a method dice_outcomes which takes the number of dice to roll and
+  the number of times to roll them, then outputs a visual chart of how many
+  times each possible number comes up.
 Example ~
-
 dice_outcomes(3, 128)
 
 3:  ##
@@ -47,9 +44,7 @@ dice_outcomes(3, 128)
 16: ##
 17: ##
 18: #
-
 =end
-
 def dice_outcomes(dice = 1, rolls = 1)
 # I used an array method instead of a hash method as I found it easier to match the example output chart
   tracker = 0
@@ -96,39 +91,33 @@ dice_outcomes
 dice_outcomes(9, 7)
 
 =begin
-Write a method fibonacci which outputs the Fibonacci Sequence members out to
-the specified number of members.
+  Write a method fibonacci which outputs the Fibonacci Sequence members out to
+  the specified number of members.
 =end
-
 def fibonacci(limit)
-  sequence = []
-  if limit == 0 || limit == 1
-    sequence << limit
+  sequence = [0]
+  if limit == 0
+    puts "Please enter a number above 0"
   else
-    first = 1
-    second = 1
-    counter = 0
-    while counter < limit
-      sequence << first
-        increment = first + second
-          first = second
-            second = increment
-              counter += 1
+    pattern = 1
+    (limit - 1).times do |index|
+      sequence << pattern
+      pattern = pattern + sequence[index]
     end
+    puts "The first #{limit.to_s} numbers in the Fibonacci Sequence are #{sequence}"
   end
-  puts "The numbers in the Fibonacci Sequence up to #{limit.to_s} are #{sequence}"
 end
 
-fibonacci(4)
-fibonacci(7)
 fibonacci(1)
+fibonacci(8)
+fibonacci(0)
+fibonacci(2)
 
 =begin
-Write a method stock_picker which takes an array of stock prices (prices on
-days 0, 1, ...) and outputs the most profitable pair of days on which to
-first buy the stock and then sell the stock.
+  Write a method stock_picker which takes an array of stock prices (prices on
+  days 0, 1, ...) and outputs the most profitable pair of days on which to
+  first buy the stock and then sell the stock.
 =end
-
 def stock_picker(array)
   result = 0
   largest = 0
@@ -160,11 +149,10 @@ stock_picker([500, 700, 300, 400, 200, 100, 600])
 stock_picker([5, 4, 3, 2, 1])
 
 =begin
-Write a method anagrams which returns an array of anagrams that can be made
-with the specified string. Assume the input is only a single word
-(e.g. "loot" not "William Shakespeare").
+  Write a method anagrams which returns an array of anagrams that can be made
+  with the specified string. Assume the input is only a single word
+  (e.g. "loot" not "William Shakespeare").
 =end
-
 def anagrams(string)
 # enable.txt is a Scrabble dictionary provided/recommended by Viking Code School
   dictionary = File.readlines("enable.txt")

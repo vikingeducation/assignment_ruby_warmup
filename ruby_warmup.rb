@@ -45,7 +45,7 @@ def anagrams(word_search)
   word_search.downcase!
   words.each do |word|
     word.chomp!
-    if (word != word_search) && (word.length == word_search.length)
+    if word.length == word_search.length
       word_match << word.upcase if word_search.split("").sort == word.split("").sort
     end
   end
